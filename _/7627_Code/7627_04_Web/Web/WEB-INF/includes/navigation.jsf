@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<ui:composition>
+	<tr:form>
+		<tr:navigationPane hint="#{param.nav ne null ? param.nav : 'tabs'}" rendered="#{param.icons ne 'true'}">
+			<tr:commandNavigationItem text="Home" destination="/index.jsf" selected="#{view.viewId eq '/index.jsf'}" />
+			<tr:commandNavigationItem text="About" destination="/about.jsf" selected="#{view.viewId eq '/about.jsf'}" />
+			<tr:commandNavigationItem text="Products" destination="/products.jsf" selected="#{view.viewId eq '/products.jsf'}" />
+			<tr:commandNavigationItem text="Services" destination="/services.jsf" selected="#{view.viewId eq '/services.jsf'}" />
+			<tr:commandNavigationItem text="Contact Us" destination="/contact.jsf" selected="#{view.viewId eq '/contact.jsf'}" />
+			<tr:commandNavigationItem text="Admin" destination="/admin.jsf" selected="#{view.viewId eq '/admin.jsf'}" disabled="#{true}" />
+		</tr:navigationPane>
+		<tr:navigationPane value="#{navigationMenuModel}" hint="#{param.nav ne null ? param.nav : 'tabs'}" var="node" rendered="#{param.icons eq 'true'}">
+			<f:facet name="nodeStamp">
+				<tr:commandNavigationItem text="#{node.label}" icon="#{node.icon}" destination="#{node.destination}" disabled="#{node.disabled}" />
+			</f:facet>
+		</tr:navigationPane>
+	</tr:form>
+</ui:composition>
+</body>
+</html>

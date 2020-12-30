@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:inputColor example</title>
+</head>
+<body>
+<f:view>
+	<tr:form>
+  	<h:panelGrid>
+	    <tr:outputFormatted styleUsage="instruction" value="Select a Color" />
+			<tr:inputColor id="inputColor" compact="true" simple="true" value="#{customerBean.customer.favoriteColor}" chooseId="chooseColor" />
+    	<tr:chooseColor id="chooseColor" />
+			<tr:commandButton text="Submit" />
+    </h:panelGrid>
+	</tr:form>
+</f:view>
+</body>
+</html>

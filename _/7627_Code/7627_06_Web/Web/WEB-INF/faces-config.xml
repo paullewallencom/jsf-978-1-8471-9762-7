@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+	<application>
+		<message-bundle>messages</message-bundle>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>fr</supported-locale>
+			<supported-locale>es</supported-locale>
+		</locale-config>
+	</application>	
+	<converter>
+		<description>Location converter</description>
+		<display-name>Location Converter</display-name>
+		<converter-id>locationConverter</converter-id>
+		<converter-class>chapter6.converter.LocationConverter</converter-class>
+	</converter>
+	<managed-bean>
+		<description>Shipping calculator bean.</description>
+		<managed-bean-name>shippingCalculatorBean</managed-bean-name>
+		<managed-bean-class>chapter6.bean.ShippingCalculatorBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Shipping calculator bean.</description>
+		<managed-bean-name>shippingCalculatorBean2</managed-bean-name>
+		<managed-bean-class>chapter6.bean.ShippingCalculatorBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<!--
+		These managed beans are now declared using Seam annotations.
+		<managed-bean> <description>A simple backing bean
+		example.</description>
+		<managed-bean-name>backingBean</managed-bean-name>
+		<managed-bean-class>chapter6.bean.BackingBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope> <managed-property>
+		<property-name>productBean</property-name>
+		<property-class>chapter6.bean.ProductBean</property-class>
+		<value>#{productBean}</value> </managed-property> </managed-bean>
+		<managed-bean> <description>This bean supports customer-related
+		properties and events.</description>
+		<managed-bean-name>customerBean</managed-bean-name>
+		<managed-bean-class>chapter6.bean.CustomerBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope> </managed-bean>
+		<managed-bean> <description>This managed bean handles product related
+		data and events.</description>
+		<managed-bean-name>productBean</managed-bean-name>
+		<managed-bean-class>chapter6.bean.ProductBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope> <managed-property>
+		<property-name>customerBean</property-name>
+		<property-class>chapter6.bean.CustomerBean</property-class>
+		<value>#{customerBean}</value> </managed-property> </managed-bean>
+	-->
+	<navigation-rule>
+		<display-name>register</display-name>
+		<from-view-id>/validateAll.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/success.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step1.jsf</display-name>
+		<from-view-id>/order/step1.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>next</from-outcome>
+			<to-view-id>/order/step2.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step2.jsf</display-name>
+		<from-view-id>/order/step2.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>next</from-outcome>
+			<to-view-id>/order/step3.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step3.jsf</display-name>
+		<from-view-id>/order/step3.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/order/success.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step3.jsf</display-name>
+		<from-view-id>/order/step3.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>out-of-stock</from-outcome>
+			<to-view-id>/order/out-of-stock.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step3.jsf</display-name>
+		<from-view-id>/order/step3.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/order/step2.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/step2.jsf</display-name>
+		<from-view-id>/order/step2.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/order/step1.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>order/out-of-stock.jsf</display-name>
+		<from-view-id>/order/out-of-stock.jsf</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/order/step3.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<validator>
+		<description>This birthdate validator checks a date to make sure it is within the last 120 years.</description>
+		<display-name>Custom Date Validator</display-name>
+		<validator-id>customDateValidator</validator-id>
+		<validator-class>chapter6.validator.CustomDateValidator</validator-class>
+	</validator>
+</faces-config>

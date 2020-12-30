@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk"
+xmlns:ice="http://www.icesoft.com/icefaces/component">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:inputText example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<ice:form>
+		<ice:outputLabel for="name" value="Enter your name: " />
+		<ice:inputText id="name" value="#{backingBean.name}" required="#{true}" />
+		<ice:commandButton value="Submit" />
+    <ice:message effect="#{backingBean.valueChangeEffect}" showDetail="#{true}" for="name" />
+    <ice:panelGroup rendered="#{backingBean.name ne null}">
+			<ice:outputText value="Hello, #{backingBean.name}" effect="#{backingBean.valueChangeEffect}" />  		  
+    </ice:panelGroup>
+	</ice:form>
+</body>
+</f:view>
+</html>

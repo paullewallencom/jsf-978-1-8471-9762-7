@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>a4j:status example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<rich:panel style="width:220px; heigth:250px;">
+	<f:facet name="header">
+		<h:outputText value="Calculate" />
+	</f:facet>
+	<h:form>
+		<a4j:commandButton id="calculate" value="Calculate" reRender="text" actionListener="#{backingBean.calculate1}" /><h:outputText id="text" value="#{backingBean.result1}" />
+	</h:form>
+	<a4j:status id="showstatus" startText="Calculating..." /></rich:panel>
+</body>
+</html>

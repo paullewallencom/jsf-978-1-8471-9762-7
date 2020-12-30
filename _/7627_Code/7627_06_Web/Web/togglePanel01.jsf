@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:togglePanel example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<h:form>
+	<rich:togglePanel switchType="client" stateOrder="closed,tip1,tip2" initialState="tip1">
+		<f:facet name="closed">
+    	<h:panelGroup>
+        <rich:toggleControl style="padding-right:3px">
+          <h:graphicImage url="/images/info.gif" style="border:0; vertical-align:middle;" />
+        </rich:toggleControl>
+        <rich:toggleControl>
+	        <h:outputText value="Information" />       
+        </rich:toggleControl>
+      </h:panelGroup>
+		</f:facet>
+		<f:facet name="tip1">
+			<h:panelGrid cellpadding="0" cellspacing="0" border="0" columns="1">
+				<h:outputText value="Did you know you can reserve items from our store for up to 48 hours?" />
+				<rich:separator height="1" />
+				<h:panelGrid columns="3">
+					<rich:toggleControl switchToState="closed">
+						<h:graphicImage url="/images/close.gif" style="border:0;" />
+          </rich:toggleControl>
+					<rich:toggleControl switchToState="tip2" value="Next Tip &gt;" />
+				</h:panelGrid>
+			</h:panelGrid>
+		</f:facet>
+		<f:facet name="tip2">
+			<h:panelGrid cellpadding="0" cellspacing="0" border="0" columns="1">
+				<h:outputText value="Our sales staff is always ready to assist. Please call 1-800-555-1234." />
+				<rich:separator height="1" />
+				<h:panelGrid columns="3">
+					<rich:toggleControl switchToState="closed">
+						<h:graphicImage url="/images/close.gif" style="border:0;" />
+          </rich:toggleControl>
+					<rich:toggleControl switchToState="tip1" value="&lt; Previous Tip" />
+				</h:panelGrid>
+			</h:panelGrid>
+		</f:facet>
+	</rich:togglePanel>
+</h:form>
+</body>
+</html>

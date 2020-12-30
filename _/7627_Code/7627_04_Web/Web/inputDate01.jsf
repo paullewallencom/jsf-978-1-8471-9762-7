@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html"
+	xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+	<head>
+	<f:loadBundle var="bundle" basename="messages" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>tr:inputDate example</title>
+	<trh:styleSheet />
+	</head>
+	<body>
+	<tr:form>
+		<h:panelGrid columns="1">
+			<tr:outputFormatted styleUsage="instruction"
+				value="Please enter your birthdate." />
+			<h:panelGroup>
+				<tr:chooseDate id="chooseDate" minValue="#{backingBean.minimumDate}" />
+				<tr:inputDate chooseId="chooseDate"
+					value="#{customerBean.customer.birthDate}" required="#{true}"
+					label="#{bundle.dateOfBirthLabel}">
+					<tr:validateDateTimeRange minimum="#{backingBean.minimumDate}" />
+				</tr:inputDate>
+			</h:panelGroup>
+			<h:commandButton value="Submit" />
+			<h:panelGroup rendered="#{customerBean.customer.birthDate ne null}">
+				<h:outputText value="Your birth date is " />
+				<h:outputText value="#{customerBean.customer.birthDate}">
+					<f:convertDateTime dateStyle="full" type="date" />
+				</h:outputText>
+			</h:panelGroup>
+		</h:panelGrid>
+	</tr:form>
+	</body>
+</f:view>
+</html>

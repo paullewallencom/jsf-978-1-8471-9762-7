@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12476002726030" configfile="/7627_03_Web/Web/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="products.jsf" x="168" y="77" id="pf12482845306274" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf12486717575710 pf12486717575711" inlinks="pf12486813924894" path="/products.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="orderform.jsf" x="326" y="132" id="pf12486717575722" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf12486717575711" path="/orderform.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="outofstock.jsf" x="323" y="12" id="pf12486717575723" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf12486717575710" path="/outofstock.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="24" y="79" id="pf12486813924905" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf12486813924894" path="*"/>
+  <links id="pf12486717575710" target="pf12486717575723" source="pf12482845306274" outcome="outofstock" redirect="true"/>
+  <links id="pf12486717575711" target="pf12486717575722" source="pf12482845306274" outcome="order" redirect="true"/>
+  <links id="pf12486813924894" target="pf12482845306274" source="pf12486813924905" outcome="products" redirect="true"/>
+</pageflow:Pageflow>

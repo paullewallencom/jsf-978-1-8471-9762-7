@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:panelBar example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<h:form>
+  <rich:panelBar width="300px">
+    <rich:panelBarItem label="Recommended">
+      <rich:dataTable width="100%" value="#{productBean.randomProducts}" var="product" rows="3">
+        <rich:column colspan="3">
+          <h:graphicImage url="/images/#{product.icon}" style="text-align:left; vertical-align:middle; padding-right:5px" />
+          <h:outputText value="#{product.name}" />
+        </rich:column>
+        <rich:columnGroup>
+          <rich:column>
+            <h:outputText value="#{product.category.name}" />
+          </rich:column>
+          <rich:column>
+            <h:outputText value="#{product.price}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </rich:column>
+					<rich:column>
+            <h:outputText value="In stock: #{product.quantityInStock}" />          
+          </rich:column>          
+        </rich:columnGroup>
+      </rich:dataTable>
+    </rich:panelBarItem>
+    <rich:panelBarItem label="Most Popular">
+      <rich:dataTable width="100%" value="#{productBean.randomProducts}" var="product" rows="3">
+        <rich:column colspan="3">
+          <h:graphicImage url="/images/#{product.icon}" style="text-align:left; vertical-align:middle; padding-right:5px" />
+          <h:outputText value="#{product.name}" />
+        </rich:column>
+        <rich:columnGroup>
+          <rich:column>
+            <h:outputText value="#{product.category.name}" />
+          </rich:column>
+          <rich:column>
+            <h:outputText value="#{product.price}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </rich:column>
+					<rich:column>
+            <h:outputText value="In stock: #{product.quantityInStock}" />          
+          </rich:column>          
+        </rich:columnGroup>
+      </rich:dataTable>
+    </rich:panelBarItem>
+		<rich:panelBarItem label="Favorites">
+      <rich:dataTable width="100%" value="#{productBean.randomProducts}" var="product" rows="3">
+        <rich:column colspan="3">
+          <h:graphicImage url="/images/#{product.icon}" style="text-align:left; vertical-align:middle; padding-right:5px" />
+          <h:outputText value="#{product.name}" />
+        </rich:column>
+        <rich:columnGroup>
+          <rich:column>
+            <h:outputText value="#{product.category.name}" />
+          </rich:column>
+          <rich:column>
+            <h:outputText value="#{product.price}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </rich:column>
+					<rich:column>
+            <h:outputText value="In stock: #{product.quantityInStock}" />          
+          </rich:column>          
+        </rich:columnGroup>
+      </rich:dataTable>
+    </rich:panelBarItem>    
+    <rich:panelBarItem label="Purchased">
+      <rich:dataTable width="100%" value="#{productBean.randomProducts}" var="product" rows="3">
+        <rich:column colspan="3">
+          <h:graphicImage url="/images/#{product.icon}" style="text-align:left; vertical-align:middle; padding-right:5px" />
+          <h:outputText value="#{product.name}" />
+        </rich:column>
+        <rich:columnGroup>
+          <rich:column>
+            <h:outputText value="#{product.category.name}" />
+          </rich:column>
+          <rich:column>
+            <h:outputText value="#{product.price}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </rich:column>
+					<rich:column>
+            <h:outputText value="In stock: #{product.quantityInStock}" />          
+          </rich:column>          
+        </rich:columnGroup>
+      </rich:dataTable>
+    </rich:panelBarItem>
+  </rich:panelBar>
+</h:form>
+</body>
+</html>

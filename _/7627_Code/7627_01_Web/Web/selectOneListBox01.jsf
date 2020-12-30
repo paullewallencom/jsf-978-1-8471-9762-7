@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:selectOneListbox example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<h:form id="form">
+  <div>
+    <h:outputLabel value="How did you hear about us?" for="option" />
+  </div>
+  <div>
+    <h:selectOneListbox id="option" value="#{customerBean.informationSource}">
+      <f:selectItem itemLabel="Television" itemValue="Television" />
+      <f:selectItem itemLabel="Radio" itemValue="Radio" />
+      <f:selectItem itemLabel="Internet Search" itemValue="Internet Search" />
+      <f:selectItem itemLabel="Word of Mouth" itemValue="Word of Mouth" />
+      <f:selectItem itemLabel="Other" itemValue="Other" />
+    </h:selectOneListbox>
+  </div> 
+</h:form>
+</body>
+</f:view>
+</html>

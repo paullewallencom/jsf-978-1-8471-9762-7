@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:icon example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:panelGroupLayout>
+			<tr:selectOneChoice label="Choose a Skin:"
+				value="#{sessionScope.skinFamily}" onchange="submit()">
+				<tr:selectItem label="simple" value="simple" />
+				<tr:selectItem label="minimal" value="minimal" />
+				<tr:selectItem label="purple" value="purple" />
+				<tr:selectItem label="purpleBigFont" value="purpleBigFont" />
+				<tr:selectItem label="beach" value="beach" />
+				<tr:selectItem label="custom" value="custom" />
+			</tr:selectOneChoice>
+		</tr:panelGroupLayout>
+		<trh:tableLayout width="20%" borderWidth="0" cellSpacing="5">
+			<trh:rowLayout>
+				<tr:icon name="file" />
+				<tr:outputText value="File" />
+			</trh:rowLayout>
+			<trh:rowLayout>
+				<tr:icon name="folderOpen" />
+				<tr:outputText value="Folder Open" />
+			</trh:rowLayout>
+			<trh:rowLayout>
+				<tr:icon name="folderClosed" />
+				<tr:outputText value="Folder Closed" />
+			</trh:rowLayout>
+		</trh:tableLayout>
+	</tr:form>
+</f:view>
+</body>
+</html>

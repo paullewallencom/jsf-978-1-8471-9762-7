@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:inputText date binding example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+	<h:form>
+		<div>
+			<h:outputLabel for="name" value="Enter your birthdate (M/d/yyyy): " />
+			<h:inputText id="name" value="#{backingBean.date}">
+				<f:convertDateTime type="date" pattern="M/d/yyyy" />
+				<f:validator validatorId="customDateValidator" />
+			</h:inputText>
+			<h:commandButton value="Submit" />
+		</div>
+		<h:message for="name" style="display:block" errorStyle="color:red" />
+		<div>
+			<h:outputText value="You were born on " rendered="#{backingBean.date ne null}" />
+			<h:outputText value="#{backingBean.date}">
+				<f:convertDateTime type="date" dateStyle="full" />
+			</h:outputText>
+		</div>
+	</h:form>
+</f:view>
+</body>
+</html>

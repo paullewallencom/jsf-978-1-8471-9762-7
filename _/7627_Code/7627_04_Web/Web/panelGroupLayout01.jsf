@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:panelGroupLayout example</title>
+<trh:styleSheet />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:panelGroupLayout layout="vertical">
+    	<f:facet name="separator">
+      	<tr:spacer height="10" width="150" />
+      </f:facet>
+			<tr:outputText value="Hello" />
+			<tr:outputText value="World" />
+			<tr:outputText value="How" />
+			<tr:outputText value="Are" />
+			<tr:outputText value="You?" />
+		</tr:panelGroupLayout>
+	</tr:form>
+</f:view>
+</body>
+</html>

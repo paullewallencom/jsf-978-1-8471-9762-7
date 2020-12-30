@@ -1,0 +1,20 @@
+<html xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:virtualEarth example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<h:form>
+	<a4j:jsFunction name="showLocation" data="#{mapBean.selectedLocation}" reRender=":zoom" oncomplete="map.SetCenterAndZoom(new VELatLong(data.latitude, data.longitude), data.zoom)" />
+	<rich:virtualEarth id="gm" style="width:500px" dashboardSize="Normal" mapStyle="Birdseye" var="map" />	    
+  <h:panelGrid columns="2">
+		<rich:inputNumberSlider id="zoom" value="#{mapBean.zoom}" showInput="false" minValue="1" maxValue="19" onchange="map.SetZoomLevel(this.value)" />
+		<h:selectOneMenu value="#{mapBean.selectedLocation}" converter="locationConverter">
+			<s:selectItems noSelectionLabel="Select Location" value="#{mapBean.locations}" var="item" label="#{item.name}" />
+			<a4j:support event="onchange" oncomplete="showLocation()" />
+    </h:selectOneMenu>
+	</h:panelGrid>  
+</h:form>
+</body>
+</html>

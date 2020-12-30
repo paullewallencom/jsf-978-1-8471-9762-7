@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+	<itemNode id="home" label="Home" destination="/index.jsf"
+		icon="/images/home.png" focusViewId="/index.jsf" />
+	<itemNode id="about" label="About" destination="/about.jsf"
+		focusViewId="/about.jsf" icon="/images/about.png">
+		<itemNode id="company" label="Company Information"
+			destination="/company/index.jsf" focusViewId="/company/index.jsf"
+			icon="/images/company.png">
+			<itemNode id="investors" label="Investor Relations" destination="/company/investors/index.jsf"
+				focusViewId="/company/investors/index.jsf" icon="/images/investors.png" />
+		</itemNode>
+	</itemNode>
+	<itemNode id="products" label="Products" destination="/products.jsf"
+		focusViewId="/products.jsf" icon="/images/products.png" />
+	<itemNode id="services" label="Services" destination="/services.jsf"
+		focusViewId="/services.jsf" icon="/images/services.png" />
+	<itemNode id="contact" label="Contact Us" icon="/images/contact.png"
+		destination="contact.jsf" focusViewId="/contact.jsf" />
+	<itemNode id="admin" label="Admin" icon="/images/admin.png"
+		destination="admin.jsf" focusViewId="/admin.jsf" disabled="#{!backingBean.administrator}" />		
+</menu>

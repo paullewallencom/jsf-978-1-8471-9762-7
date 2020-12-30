@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>a4j:region example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<a4j:outputPanel ajaxRendered="true">
+	<h:messages style="color:red" />
+</a4j:outputPanel>
+<h:panelGrid columns="2" columnClasses="outergridvalidationcolumn">
+	<h:form id="form1">
+		<h:panelGrid columns="2">
+			<h:outputText value="Name" />
+			<h:inputText value="#{backingBean.name}">
+				<a4j:support event="onkeyup" reRender="outname" /></h:inputText>
+			<h:outputText value="Job" />
+			<h:inputText required="true" id="job2" value="#{backingBean.word}" />
+		</h:panelGrid>
+	</h:form>
+	<h:form id="form2">
+		<h:panelGrid columns="2">
+			<h:outputText value="Name" />
+			<a4j:region><h:inputText value="#{backingBean.name}">
+					<a4j:support event="onkeyup" reRender="outname" /></h:inputText>
+			</a4j:region>
+			<h:outputText value="Job" />
+			<h:inputText required="true" id="job1" value="#{backingBean.word}" />
+		</h:panelGrid>
+	</h:form>
+</h:panelGrid>
+<h:outputText id="outname" style="font-weight:bold" value="Typed Name: #{backingBean.name}" />
+</body>
+</html>

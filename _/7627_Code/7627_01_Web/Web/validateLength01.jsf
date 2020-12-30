@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>f:validateLength example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+<h:form>
+    <h:outputLabel value="Please enter a password (must be 8 characters): " />
+    <h:inputSecret maxlength="8" id="password" value="#{backingBean.password}" label="Password">
+    	<f:validateLength minimum="8" maximum="8" />
+    </h:inputSecret>
+    <h:commandButton value="Submit" /><br />
+ 		<h:message for="password" errorStyle="color:red" />
+  </h:form>
+</f:view>
+</body>
+</html>

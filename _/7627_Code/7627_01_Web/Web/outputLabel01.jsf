@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:outputLabel example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<div>
+			<h:outputLabel value="Remember Me" for="remember" />
+			<h:selectBooleanCheckbox id="remember" value="#{backingBean.rememberMe}" onclick="submit()" />
+		</div>
+		<div>
+			<h:outputText value="You are remembered!" rendered="#{backingBean.rememberMe ne null and backingBean.rememberMe}" />
+			<h:outputText value="You are forgotten!" rendered="#{backingBean.rememberMe ne null and !backingBean.rememberMe}" />
+		</div>
+	</h:form>
+</f:view>
+</body>
+</html>

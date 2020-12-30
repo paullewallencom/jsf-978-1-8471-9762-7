@@ -1,0 +1,33 @@
+<html xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>tr:navigationTree example</title>
+    <trh:styleSheet />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <f:view>
+      <tr:form>
+        <trh:rowLayout styleClass="layout-table">
+          <tr:navigationTree inlineStyle="width:300px;" value="#{productBean.productCategoryModel}" var="node">
+            <f:facet name="nodeStamp">
+              <tr:commandNavigationItem text="#{node.label}" destination="#{node.viewId}" />
+            </f:facet>
+          </tr:navigationTree>
+          <tr:panelGroupLayout layout="vertical" rendered="#{productBean.selectedProduct ne null}">
+          	<f:facet name="separator">
+            	<tr:spacer width="10" height="10" />
+            </f:facet>
+            <tr:outputLabel value="Selected Product" styleClass="bold" />
+            <tr:outputText value="#{productBean.selectedProduct.name}" />
+            <tr:outputLabel value="Price" styleClass="bold" />
+            <tr:outputText value="#{productBean.selectedProduct.price}">
+              <f:convertNumber type="currency" currencySymbol="$" />
+            </tr:outputText>
+            <tr:commandLink text="Place Order" action="#{productBean.placeOrder}" />
+          </tr:panelGroupLayout>
+        </trh:rowLayout>
+      </tr:form>
+    </f:view>
+  </body>
+</html>

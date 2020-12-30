@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+<head>
+<f:loadBundle basename="messages" var="bundle" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:outputFormat example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>	
+	<h:outputFormat value="#{bundle.welcomeMessage2}">
+    	<f:param value="#{param.username}" />
+        <f:param value="#{view.locale}" />
+        <f:param value="#{backingBean.today}" />
+    </h:outputFormat>
+</body>
+</f:view>
+</html>

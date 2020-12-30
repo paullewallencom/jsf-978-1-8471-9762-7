@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk">
+<f:view>
+<head>
+<link rel="stylesheet" type="text/css" href="css/basic.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:inputCalendar example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form>
+		<h:outputLabel for="date1" value="Select a Date" />
+		<t:inputCalendar id="date1" type="date" required="#{true}" monthYearRowClass="yearMonthHeader" weekRowClass="weekHeader" currentDayCellClass="currentDayCell" />
+		<h:commandButton value="Submit" />
+		<h:message for="date1" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+	</h:form>
+</body>
+</f:view>
+</html>

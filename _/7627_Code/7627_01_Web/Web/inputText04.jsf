@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:commandButton example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form id="form">
+		<div>
+			<h:outputLabel for="word" value="Add or remove a word from the list: " />
+			<h:inputText id="word" value="#{backingBean.word}" />
+			<h:commandButton value="Add" actionListener="#{backingBean.addWord}" />
+			<h:commandButton value="Remove" actionListener="#{backingBean.removeWord}" />
+		</div>
+		<div>
+			<ul>
+				<ui:repeat value="#{backingBean.words}" var="word">
+					<li>
+						<h:outputText value="#{word}" />
+					</li>
+				</ui:repeat>
+			</ul>
+		</div>
+	</h:form>
+</f:view>
+</body>
+</html>

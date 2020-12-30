@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:seletInputDate example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<ice:outputStyle href="/xmlhttp/css/xp/xp.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<ice:form>
+		<ice:outputLabel for="calendar1" value="Enter your birth date: " />
+		<ice:selectInputDate id="calendar1" renderMonthAsDropdown="true" renderYearAsDropdown="true" popupDateFormat="EEE, MMM d, yyyy" value="#{backingBean.date}" rendered="#{backingBean.pattern eq 'date'}" renderAsPopup="true" valueChangeListener="#{dateSelect.effect2ChangeListener}" />
+		<h:message style="color: red" for="calendar1" />
+		<ice:outputText value="Your birth date is: #{backingBean.date}" rendered="#{backingBean.date ne null}" />
+	</ice:form>
+</body>
+</f:view>
+</html>

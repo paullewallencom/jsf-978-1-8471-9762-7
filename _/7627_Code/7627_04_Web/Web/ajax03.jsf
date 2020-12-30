@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form partialTriggers="poll">
+		<tr:poll interval="1000" pollListener="#{backingBean.slowPollListener}"
+			id="poll" />
+		<tr:outputText value="#{backingBean.message}" inlineStyle="display:block" />
+		<tr:outputText value="Count: #{backingBean.number}" inlineStyle="display:block" />
+		<tr:statusIndicator>
+			<f:facet name="busy">
+				<tr:outputText value="Loading, please wait..." />
+			</f:facet>
+			<f:facet name="ready">
+				<tr:outputText value="Ready." />
+			</f:facet>
+		</tr:statusIndicator>
+	</tr:form>
+</f:view>
+</body>
+</html>

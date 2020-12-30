@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib" xmlns:rich="http://richfaces.org/rich">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>s:validateAll example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<a4j:form id="customerForm" styleClass="customer-form">
+	<f:facet name="beforeInvalidField">
+		<h:graphicImage src="images/error.gif" />
+	</f:facet>
+	<f:facet name="afterInvalidField">
+		<s:message errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+	</f:facet>
+	<f:facet name="aroundInvalidField">
+		<s:span styleClass="invalid" />
+	</f:facet>
+	<s:validateAll>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="firstName" value="#{messages.firstNameLabel}" />
+			<s:decorate id="firstNameDecoration">
+				<h:inputText id="firstName" value="#{customerBean.customer.firstName}" required="#{true}">
+        	<a4j:support ajaxSingle="true" event="onblur" reRender="firstNameDecoration" />
+        </h:inputText>
+			</s:decorate>
+			<h:outputLabel value="#{messages.lastNameLabel}" for="lastName" />
+			<s:decorate id="lastNameDecoration">
+				<h:inputText id="lastName" value="#{customerBean.customer.lastName}" required="#{true}">
+	        <a4j:support ajaxSingle="true" event="onblur" reRender="lastNameDecoration" />
+        </h:inputText>
+			</s:decorate>
+			<h:outputLabel for="dateOfBirth" value="#{messages.dateOfBirthLabel}" />
+			<s:decorate id="dateOfBirthDecoration">
+				<rich:calendar id="dateOfBirth" value="#{customerBean.customer.birthDate}" required="#{true}">
+          <a4j:support ajaxSingle="true" event="onchanged" reRender="dateOfBirthDecoration" />
+        </rich:calendar>
+			</s:decorate>
+			<h:outputLabel for="gender" value="#{messages.genderLabel}" />
+			<s:decorate id="genderDecoration">
+				<h:selectOneRadio id="gender" value="#{customerBean.customer.male}" required="#{true}">
+					<f:selectItem itemLabel="Male" itemValue="#{true}" />
+					<f:selectItem itemLabel="Female" itemValue="#{false}" />
+          <a4j:support ajaxSingle="true" event="onchange" reRender="genderDecoration" />
+				</h:selectOneRadio>
+			</s:decorate>
+			<h:outputLabel for="phoneNumber" value="#{messages.phoneNumberLabel}" />
+			<s:decorate id="phoneNumberDecoration">
+				<h:inputText id="phoneNumber" value="#{customerBean.customer.phoneNumber}">
+        	<a4j:support ajaxSingle="true" event="onblur" reRender="phoneNumberDecoration" />
+        </h:inputText>
+			</s:decorate>
+			<h:outputLabel for="emailAddress" value="#{messages.emailAddressLabel}" />
+			<s:decorate id="emailAddressDecoration">
+				<h:inputText id="emailAddress" value="#{customerBean.customer.emailAddress}" required="#{true}">
+	        <a4j:support ajaxSingle="true" event="onblur" reRender="emailAddressDecoration" />
+        </h:inputText>
+			</s:decorate>
+			<h:outputLabel for="emailAddress" value="#{messages.emailAddressConfirmLabel}" />
+			<s:decorate id="emailAddress2Decoration">
+				<h:inputText id="emailAddress2" required="#{true}">
+	        <a4j:support event="onblur" reRender="emailAddress2Decoration" />
+          <s:validateEquality for="emailAddress" message="Email addresses do not match." />
+        </h:inputText>
+			</s:decorate>      
+			<h:outputLabel value="#{messages.countryLabel}" for="country" required="#{true}" />
+			<s:decorate id="countryDecoration">
+				<h:selectOneMenu id="country" value="#{customerBean.customer.countryOfOrigin}" required="#{true}">
+					<s:selectItems noSelectionLabel="Select" value="#{customerBean.countries}" var="country" label="#{country.name}" />
+					<s:convertEntity />
+          <a4j:support event="onchange" reRender="countryDecoration" />
+				</h:selectOneMenu>
+			</s:decorate>		
+		</h:panelGrid>
+		<a4j:commandButton value="Save" action="#{customerBean.saveCustomer}" reRender="customerForm" /></s:validateAll>
+</a4j:form>
+</body>
+</html>

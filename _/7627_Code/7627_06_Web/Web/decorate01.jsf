@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:s="http://jboss.com/products/seam/taglib" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>s:decorate example</title>
+<link rel="stylesheet" type="text/css" href="/chapter6/css/style.css" />
+</head>
+<body>
+<h:form>
+    <s:decorate template="validation.jsf">
+      <ui:define name="label">#{messages.firstNameLabel}</ui:define>
+      <h:inputText label="#{messages.firstNameLabel}" id="firstName" value="#{customerBean.customer.firstName}" required="#{true}" />
+    </s:decorate>
+    <s:decorate template="validation.jsf">
+      <ui:define name="label">#{messages.lastNameLabel}</ui:define>
+      <h:inputText label="#{messages.lastNameLabel}" id="lastName" value="#{customerBean.customer.lastName}" required="#{true}" />
+    </s:decorate>
+		<h:commandButton value="Sign Up" />
+</h:form>
+</body>
+</html>

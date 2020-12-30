@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<query name="Product.findAll">
+		<![CDATA[
+		select distinct product		
+		from Product product
+		inner join fetch product.category
+		order by product.name
+		]]>
+	</query>
+	<query name="ProductCategory.findAll">
+		<![CDATA[
+		select category	
+		from ProductCategory category
+		order by category.name
+		]]>
+	</query>
+	<query name="Customer.findAll">
+		<![CDATA[
+		select customer
+		from Customer customer
+		order by customer.lastName, customer.firstName
+		]]>
+	</query>
+	<query name="Country.findAll">
+		<![CDATA[
+		select country
+		from Country country
+		order by country.name
+		]]>
+	</query>
+	<query name="Country.findByNameLike">
+		<![CDATA[
+		select country
+		from Country country
+		where country.name like ?
+		order by country.name
+		]]>
+	</query>	
+	<query name="Order.findAll">
+		<![CDATA[
+		select o
+		from Order o
+		order by o.orderNumber
+		]]>
+	</query>
+	<query name="ProductCategory.findByName">
+		<![CDATA[
+		select category
+		from ProductCategory category
+		where category.name = ?
+		order by category.name
+		]]>
+	</query>
+	<query name="ProductCategory.findSubCategoryByName">
+		<![CDATA[
+		select category
+		from ProductCategory category
+		inner join fetch category.parentCategory parent
+		where parent = ?
+		and category.name = ?
+		order by category.name
+		]]>
+	</query>
+	<query name="Product.findByPrice">
+		<![CDATA[
+		select product
+		from Product product
+		where product.price <= ?
+		]]>
+	</query>
+	<query name="Order.findUniqueOrderNumber">
+		<![CDATA[
+		select (max(o.orderNumber) + 1)
+		from Order o
+		]]>
+	</query>
+</hibernate-mapping>

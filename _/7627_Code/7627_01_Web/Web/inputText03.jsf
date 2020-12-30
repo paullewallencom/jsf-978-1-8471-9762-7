@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:inputText number binding example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form id="form">
+		<div>
+			<h:outputLabel for="number" value="What is the answer to life, the universe, and everything? " />
+			<h:inputText id="number" value="#{backingBean.number}">
+				<f:validateLongRange minimum="20" maximum="50" />
+			</h:inputText>
+			<h:commandButton value="Submit" />
+		</div>
+		<h:message for="number" style="display:block" errorStyle="color:red" showSummary="#{true}" showDetail="#{false}" />
+		<div>
+			<h:outputText value="You entered the right number: #{backingBean.number}" rendered="#{backingBean.number eq 42}" />
+		</div>
+	</h:form>
+</f:view>
+</body>
+</html>

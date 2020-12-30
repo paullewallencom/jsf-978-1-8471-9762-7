@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+
+h2 { font-size:18px }
+
+.error { color:red }
+
+.block-text {
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.row-even td { 
+	background-color: white;
+}
+
+.row-odd td {
+	background-color: #EFEFEF;	
+}
+
+.centered {
+	text-align:center;	
+}
+
+.left-aligned {
+	text-align:left;	
+}
+
+input[type="submit"] {
+	margin:0 4px 0 4px;
+}

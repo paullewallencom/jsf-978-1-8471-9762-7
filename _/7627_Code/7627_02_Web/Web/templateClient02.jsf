@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ui:composition example</title>
+</head>
+<body>
+<ui:composition template="/WEB-INF/templates/template02.jsf">
+	<ui:define name="title">Facelet template example</ui:define>
+	<ui:define name="header">Hello World</ui:define>
+  <ui:define name="content">Page content goes here.</ui:define>
+</ui:composition>
+<ui:debug />
+</body>
+</html>

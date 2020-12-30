@@ -1,0 +1,11 @@
+.AFFolderOpenIcon:alias { content: url(/skins/custom/images/yellow-folder-open.png); }
+.AFFolderClosedIcon:alias { content: url(/skins/custom/images/yellow-folder-closed.png); }
+.AFFileIcon:alias { content: url(/skins/custom/images/document.png); }
+.AFInfoIcon:alias { content: url(/skins/custom/images/info.png); }
+.AFErrorIcon:alias { content: url(/skins/custom/images/error.png); }
+.AFWarningIcon:alias { content: url(/skins/custom/images/warning.png); }
+.AFRequiredIcon:alias { content: url(/skins/custom/images/required.png); }
+
+af|tree::node-icon:folder-expanded { content: url(/skins/custom/images/yellow-folder-open.png); }
+af|tree::node-icon:folder-collapsed { content: url(/skins/custom/images/yellow-folder-closed.png); }
+af|tree::node-icon:document { content: url(/skins/custom/images/document.png); }

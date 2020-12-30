@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:dataScroller example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<h:form>
+	<rich:dataTable align="center" value="#{orderBean.orders}" var="order" rows="5" id="orderTable" columnClasses="left-aligned,left-aligned,right-aligned,centered">
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Order Date" />
+			</f:facet>
+			<h:outputText value="#{order.dateReceived}" />
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Order Number" />
+			</f:facet>
+			<h:outputText value="#{order.orderNumber}" />
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Total" />
+			</f:facet>
+			<h:outputText value="#{order.total}">
+				<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+			</h:outputText>
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Customer" />
+			</f:facet>
+			<h:outputText value="#{order.customer.fullName}" />
+		</rich:column>
+	</rich:dataTable>
+	<rich:datascroller align="center" for="orderTable" maxPages="5" />
+</h:form>
+</body>
+</html>

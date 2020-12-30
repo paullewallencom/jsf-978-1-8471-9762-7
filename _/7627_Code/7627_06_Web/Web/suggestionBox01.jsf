@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:suggestionBox example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+	<t:inputTextHelp id="text" value="#{shippingCalculatorBeanSeam.country.name}" helpText="Enter a Country">
+  	<a4j:support event="onblur" reRender="selection" />
+  </t:inputTextHelp>
+	<rich:suggestionbox id="suggestionBoxId" for="text" tokens=",[]" rules="true" suggestionAction="#{customerBean.countryAutocomplete}" var="result" fetchValue="#{result}" rows="10" columnClasses="center" usingSuggestObjects="true">
+		<h:column>
+			<h:outputText value="#{result.name}" />
+		</h:column>
+	</rich:suggestionbox>
+  <h:panelGrid id="selection">
+  	<h:outputText value="You selected: #{shippingCalculatorBeanSeam.country.name}" rendered="#{shippingCalculatorBeanSeam.country.name ne null}" />
+  </h:panelGrid>
+</h:form>
+</body>
+</html>

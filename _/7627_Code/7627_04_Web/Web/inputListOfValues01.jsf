@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:inputListOfValues example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form partialTriggers="inputListOfValues">
+		<tr:inputListOfValues label="Select Product:" id="inputListOfValues"
+			value="(Empty)" searchDesc="Pick an element" columns="25"
+			action="dialog:showProductSelectionDialog" />
+		<tr:panelGroupLayout rendered="#{productBean.selectedProduct ne null}"
+			inlineStyle="display:block">
+			<tr:outputText value="You Selected: " />
+			<tr:outputText value="#{productBean.selectedProduct.name}" />
+		</tr:panelGroupLayout>
+	</tr:form>
+</f:view>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>a4j:commandButton example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<style>
+/*<![CDATA[*/
+.gridhello {
+	border-collapse: collapse;
+}
+.gridhellocolumn {
+	padding-left: 0;
+}
+.outhello {
+	font-weight: bold;
+}
+/*]]>*/
+</style>
+<a4j:form><h:panelGrid columns="3" styleClass="gridhello" columnClasses="gridhellocolumn">
+		<h:outputText value="Name:" />
+		<h:inputText value="#{backingBean.name}" />
+		<a4j:commandButton value="Say Hello" reRender="out" /></h:panelGrid>
+</a4j:form>
+<br />
+<h:panelGroup id="out">
+	<h:outputText value="Hello " rendered="#{not empty backingBean.name}" styleClass="outhello" />
+	<h:outputText value="#{backingBean.name}" styleClass="outhello" />
+	<h:outputText value="!" rendered="#{not empty backingBean.name}" styleClass="outhello" />
+</h:panelGroup>
+</body>
+</html>

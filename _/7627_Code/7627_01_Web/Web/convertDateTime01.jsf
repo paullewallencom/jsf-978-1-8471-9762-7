@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>f:convertDateTime example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+	<h:form>
+    <h:outputLabel value="Please enter a date: " />
+    <h:inputText id="date" value="#{backingBean.date}">
+      <f:convertDateTime timeZone="EST" type="date" pattern="dd/MMM/yyyy hh:mm a" />    
+    </h:inputText>
+    <h:commandButton value="Submit" />
+    <h:message for="date" errorClass="error" /><br />
+    <h:outputText value="Unconverted Date: " />
+    <h:outputText value="#{backingBean.date}" /><br />
+    <h:outputText value="Converted Date: " />
+    <h:outputText value="#{backingBean.date}">
+      <f:convertDateTime timeZone="EST" type="both" dateStyle="full" timeStyle="short" />
+    </h:outputText>
+  </h:form>
+</f:view>
+</body>
+</html>

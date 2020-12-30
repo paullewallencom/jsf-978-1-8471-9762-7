@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:validateEqual example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:panelGroup>
+				<h:outputLabel for="emailAddress" value="#{bundle.emailAddressLabel}" />
+				<h:inputText id="emailAddress" value="#{customerBean.customer.emailAddress}" required="#{true}">
+					<t:validateEmail message="The email address you have entered is not valid." />
+				</h:inputText>
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:outputLabel for="emailAddressConfirm" value="#{bundle.emailAddressConfirmLabel}" />
+				<h:inputText id="emailAddressConfirm" required="#{true}">
+					<t:validateEqual for="emailAddress" message="The email addresses you have entered do not match." />
+				</h:inputText>
+			</h:panelGroup>
+			<h:commandButton value="Submit" />
+			<h:message for="emailAddress" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+			<h:message for="emailAddressConfirm" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+		</h:panelGrid>
+	</h:form>
+</body>
+</f:view>
+</html>

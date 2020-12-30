@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:panelMenuGroup example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+  <h:panelGrid columns="2" columnClasses="align-top" cellpadding="10">
+    <rich:panelMenu selectedChild="item2">
+    	<rich:panelMenuGroup label="Recommended">
+	      <rich:panelMenuItem label="Top Sellers" actionListener="#{productBean.selectPopularProducts}" />      	
+	      <rich:panelMenuItem label="Best Value" actionListener="#{productBean.selectPopularProducts}" />      	        
+	      <rich:panelMenuItem label="Back to School" actionListener="#{productBean.selectPopularProducts}" />      	        
+      </rich:panelMenuGroup>      
+      <rich:panelMenuGroup id="item2" label="Most Popular" actionListener="#{productBean.selectPopularProducts}" />
+      <rich:panelMenuGroup id="item3" label="Favorites" actionListener="#{productBean.selectFavoriteProducts}" reRender="" />
+      <rich:panelMenuGroup id="item4" label="Purchased" actionListener="#{productBean.selectPurchasedProducts}" />
+    </rich:panelMenu>
+    <rich:panel>
+      <f:facet name="header">
+        <h:outputText value="Selected Products" />
+      </f:facet>
+      <h:outputText value="Select a category" rendered="#{empty productBean.selectedProducts}" />
+      <rich:dataTable id="selectedProducts" width="100%" value="#{productBean.selectedProducts}" var="product" rows="3">
+        <rich:column colspan="3">
+          <h:graphicImage url="/images/#{product.icon}" style="text-align:left; vertical-align:middle; padding-right:5px" />
+          <h:outputText value="#{product.name}" />
+        </rich:column>
+        <rich:columnGroup>
+          <rich:column>
+            <h:outputText value="#{product.category.name}" />
+          </rich:column>
+          <rich:column>
+            <h:outputText value="#{product.price}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </rich:column>
+          <rich:column>
+            <h:outputText value="In stock: #{product.quantityInStock}" />
+          </rich:column>
+        </rich:columnGroup>
+      </rich:dataTable>
+    </rich:panel>
+  </h:panelGrid>
+</body>
+</html>

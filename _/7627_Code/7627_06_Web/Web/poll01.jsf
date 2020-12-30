@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:poll example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+	<a4j:poll interval="1000" reRender="grid" enabled="#{backingBean.pollEnabled}" />
+  <h:panelGrid id="grid">
+  <h:outputText id="date" value="#{backingBean.today}">
+		<f:convertDateTime type="both" timeZone="EST" />
+	</h:outputText>
+  <h:outputText id="count" value="Poll count: #{backingBean.pollCount}" />
+  <h:outputText id="enabled" value="Polling enabled: #{backingBean.pollEnabled}" />
+  <h:outputText value="Conversation: #{conversation.id}" />
+  </h:panelGrid>
+</h:form>
+</body>
+</html>

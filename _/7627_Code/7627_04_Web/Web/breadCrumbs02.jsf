@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:breadCrumbs example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:outputFormatted styleUsage="instruction" value="breadCrumbs with the 'orientation' attribute set to 'vertical'" />
+		<tr:breadCrumbs orientation="vertical">
+			<tr:commandNavigationItem text="Table Demo" action="panelList01.jsf" />
+			<tr:commandNavigationItem text="Tree Demo" action="guide.tree" />
+			<tr:commandNavigationItem text="PanelPage Demo" action="guide.panelPage" />
+			<tr:commandNavigationItem text="BreadCrumbs Demo" action="guide.breadCrumbs" />
+		</tr:breadCrumbs>
+	</tr:form>
+</f:view>
+</body>
+</html>

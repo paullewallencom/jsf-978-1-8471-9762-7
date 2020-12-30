@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+<head>
+<f:loadBundle basename="messages" var="bundle" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:selectOneMenu example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form id="form">
+		<h:outputLabel for="country" value="Select a Country: " />
+		<h:selectOneMenu id="country" value="#{customerBean.customer.countryOfOrigin}" required="#{true}">
+			<f:selectItem itemLabel="Select" itemValue="" />
+			<f:selectItems value="#{customerBean.countrySelectItems}" />
+			<f:converter converterId="countryConverter" />
+		</h:selectOneMenu>
+		<h:message for="country" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+	</h:form>
+</body>
+</f:view>
+</html>

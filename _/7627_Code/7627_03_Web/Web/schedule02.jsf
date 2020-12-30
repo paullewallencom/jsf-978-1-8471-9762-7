@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:schedule example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form>
+    	<t:schedule value="#{customerBean.dailyAppointmentsScheduleModel}" tooltip="#{true}" workingStartHour="8" workingEndHour="17" theme="outlookxp" />        
+	</h:form>
+</body>
+</f:view>
+</html>

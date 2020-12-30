@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Facelets template example</title>
+</head>
+<body>
+<ui:composition template="/WEB-INF/templates/template03.jsf">
+	<ui:define name="title">Facelets template example</ui:define>
+	<ui:define name="links">
+		<ui:include src="/WEB-INF/includes/links.jsf" />
+	</ui:define>
+ 	<ui:define name="header">Customer Listing</ui:define>
+  <ui:define name="content">
+   	<p>Our company has #{customerBean.customerCount} customers.</p>
+    <p>They have been separated into two lists shown below.</p>
+  </ui:define>
+  <ui:define name="data">
+    <h:panelGrid columns="2">
+  	<ui:fragment>
+      <ui:include src="/WEB-INF/includes/customerList.jsf">
+        <ui:param name="title" value="Male Customers" />
+        <ui:param name="customers" value="#{customerBean.maleCustomers}" />
+      </ui:include>
+    </ui:fragment>
+    <ui:fragment>
+      <ui:include src="/WEB-INF/includes/customerList.jsf">
+        <ui:param name="title" value="Female Customers" />
+        <ui:param name="customers" value="#{customerBean.femaleCustomers}" />
+      </ui:include>
+    </ui:fragment>
+  </h:panelGrid>   
+  </ui:define>  
+</ui:composition>
+</body>
+</html>

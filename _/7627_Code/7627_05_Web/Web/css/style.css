@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+h2 {
+	font-size: 18px
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.error {
+	color: red
+}
+.block-text {
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.row-even td {
+	background-color: white;
+}
+.row-odd td {
+	background-color: #EFEFEF;
+}
+.column-even {
+	background-color: white;
+}
+.column-odd {
+	background-color: #EFEFEF;
+}
+.centered {
+	text-align: center;
+}
+.left-aligned {
+	text-align: left;
+}
+.right-aligned {
+	text-align: right;
+}
+label {
+	padding-right: 5px;
+}
+input {
+	margin-right: 5px;
+}
+.calendar {
+	padding: 5px 0 5px 0;
+}
+.calendar td {
+	border: 1px solid black;
+	background-color: silver;
+	padding: 0;
+	margin: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+}
+.treeTable {
+	width: 600px;
+}
+.width-30 {
+	width: 30%;
+}
+.width-40 {
+	width: 40%;
+}
+h1 {
+	font-size: 18px;
+}
+.navigationItem {
+	background-color: #CCC;
+	width: 200px;
+}
+.activeNavigationItem {
+	background-color: #999;
+}
+.openNavigationItem {
+	background-color: #999;
+}
+.dataTable {
+	width: 500px;
+}
+.column {
+	text-align: left;
+	vertical-align: top;
+}
+.nav-column {
+	width: 15%;
+	text-align: left;
+	vertical-align: top;
+	border-right: 1px solid black;
+	padding-right: 5px;
+}
+.main-column {
+	text-align: left;
+	vertical-align: top;
+	padding-left: 5px;
+}
+.bold {
+	font-weight: bold;
+}
+form {
+	display: inline;
+}
+.commandNavigation {
+	border-bottom: 1px solid silver;
+	padding-bottom: 10px;
+}
+.iceMnuBarSubMenu {
+	min-width: 160px;
+	width: auto;
+}
+.iceMnuBarVrtSubMenu {
+	min-width: 160px;
+	width: auto;
+}
+
+.moveLabel {
+	border: 1px solid silver;
+}
+.popupBody {
+	padding: 10px;
+	text-align: center;
+}
+.popupBody .iceCmdBtn {
+	margin-top: 10px;
+}
+.popupHeaderImage {
+	float: right;
+}
+
+div.clearer {
+	clear:both;
+	height:10px;
+	visibility: hidden;
+	line-height:.01em;
+	padding:0;
+	margin:0;
+}
+.icePnlGrdCol1,
+.icePnlGrdCol2 {
+	text-align: left;
+	vertical-align: top;
+}
+.icePnlBrdr td {
+		background-color: #EEEEEE;
+		border:1px solid #CCCCCC;
+		text-align:center;
+		vertical-align:middle;
+}
+.icePnlBrdrWest {
+		width:15%;
+}
+.icePnlBrdrCenter {
+		width:60%;
+}
+.icePnlBrdrEast {
+		width:15%;
+}
+.icePnlBrdrSouth {
+		height:60px;
+}
+.productBox {
+		float:left;
+		margin:5px;
+		width:177px;
+		height:100px;
+		border:1px solid #dadada;
+		font-size:11px;
+}
+
+.productBox img {
+		float:right;
+		position:relative;
+		top:65px;
+		right:2px;
+}
+
+div.container {
+		border:1px solid silver;		
+		min-height:20px;
+		padding:2px;
+}
+
+.

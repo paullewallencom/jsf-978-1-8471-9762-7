@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:inplaceSelect example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+<rich:panel style="width:320px;">
+	<f:facet name="header">
+		<h:outputText value="Countries" />
+	</f:facet>
+	<h:panelGrid columns="2">
+		<h:outputText value="Selected Country: " />
+		<rich:inplaceSelect value="#{shippingCalculator.country}" defaultLabel="Double click to edit" openOnEdit="true" showControls="true" editEvent="ondblclick" layout="block" viewClass="inplace" changedClass="inplace" changedHoverClass="hover" viewHoverClass="hover">
+			<s:selectItems value="#{customerBean.countries}" var="country" label="#{country.name}" />
+      <s:convertEntity />
+		</rich:inplaceSelect>
+	</h:panelGrid>
+</rich:panel>
+</h:form>
+</body>
+</html>

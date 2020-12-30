@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+<head>
+<f:loadBundle basename="messages" var="bundle" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:panelGrid example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form id="form">
+		<h2>Customer Registration</h2>
+		<h:panelGrid columns="3">
+			<h:outputLabel for="firstName" value="#{bundle.firstNameLabel}" />
+			<h:inputText id="firstName" value="#{customerBean.customer.firstName}" required="#{true}" />
+			<h:message for="firstName" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel value="#{bundle.lastNameLabel}" for="lastName" />
+			<h:inputText id="lastName" value="#{customerBean.customer.lastName}" required="#{true}" />
+			<h:message for="lastName" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="dateOfBirth" value="#{bundle.dateOfBirthLabel}" />
+			<h:inputText id="dateOfBirth" value="#{customerBean.customer.birthDate}" required="#{true}">
+				<f:convertDateTime pattern="M/d/yyyy" />
+				<f:validator validatorId="customDateValidator" />
+			</h:inputText>
+			<h:message for="dateOfBirth" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="gender" value="#{bundle.genderLabel}" />
+			<h:selectOneRadio id="gender" value="#{customerBean.customer.male}" required="#{true}">
+				<f:selectItem itemLabel="Male" itemValue="#{true}" />
+				<f:selectItem itemLabel="Female" itemValue="#{false}" />
+			</h:selectOneRadio>
+			<h:message for="gender" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="phoneNumber" value="#{bundle.phoneNumberLabel}" />
+			<h:inputText id="phoneNumber" value="#{customerBean.customer.phoneNumber}" />
+			<h:message for="phoneNumber" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="emailAddress" value="#{bundle.emailAddressLabel}" />
+			<h:inputText id="emailAddress" value="#{customerBean.customer.emailAddress}" required="#{true}" />
+			<h:message for="emailAddress" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel value="#{bundle.countryLabel}" for="country" required="#{true}" />
+			<h:selectOneMenu id="country" value="#{customerBean.customer.countryOfOrigin}" required="#{true}">
+				<f:selectItem itemLabel="Select" itemValue="" />
+				<f:selectItems value="#{customerBean.countrySelectItems}" />
+				<f:converter converterId="countryConverter" />
+			</h:selectOneMenu>
+			<h:message for="country" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="interests" value="#{bundle.interestsLabel}" />
+			<h:selectManyCheckbox id="interests" value="#{customerBean.interests}" layout="pageDirection">
+				<f:selectItem itemLabel="Java" itemValue="Java" />
+				<f:selectItem itemLabel="Architecture" itemValue="Architecture" />
+				<f:selectItem itemLabel="Web Design" itemValue="Web Design" />
+				<f:selectItem itemLabel="GUI Development" itemValue="GUI Development" />
+				<f:selectItem itemLabel="Database" itemValue="Database" />
+			</h:selectManyCheckbox>
+			<h:message for="interests" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+		</h:panelGrid>
+		<h:commandButton value="Save" actionListener="#{customerBean.saveCustomer}" />
+	</h:form>
+</body>
+</f:view>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+<head>
+<f:loadBundle basename="messages" var="bundle" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:dataTable example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h2>Customer Directory</h2>
+    <h:dataTable value="#{customerBean.customerList}" var="customer" rowClasses="row-even,row-odd" columnClasses="left-aligned,left-aligned,centered,left-aligned" border="2" cellpadding="5" cellspacing="2" rows="8">
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Full Name" />
+            </f:facet>
+            <h:outputText value="#{customer.fullName}" />
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Birth Date" />
+            </f:facet>
+            <h:outputText value="#{customer.birthDate}">
+            	<f:convertDateTime type="date" dateStyle="medium" />
+            </h:outputText>
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Phone Number" />
+            </f:facet>
+            <h:outputText value="#{customer.phoneNumber}" />
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Country of Origin" />
+            </f:facet>
+            <h:outputText value="#{customer.countryOfOrigin.name}" />
+        </h:column>                        
+    </h:dataTable>
+</body>
+</f:view>
+</html>

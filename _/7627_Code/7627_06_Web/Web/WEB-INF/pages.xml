@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pages xmlns="http://jboss.com/products/seam/pages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.1.xsd">
+
+	<page view-id="/dataTable03.jsf">
+		<begin-conversation join="true" />
+	</page>
+
+	<page view-id="/conversation01.jsf" />
+
+	<page view-id="/conversation02.jsf">
+		<begin-conversation join="true" />
+	</page>
+
+	<page view-id="/order/*">
+		<begin-conversation join="true" />
+	</page>
+
+	<page view-id="/gmap01.jsf">
+		<begin-conversation join="true" />
+	</page>
+	
+	<page view-id="/virtualEarth01.jsf">
+		<begin-conversation join="true" />
+	</page>
+	
+	<page view-id="/datascroller03.jsf">
+		<begin-conversation join="true" />
+	</page>
+
+</pages>

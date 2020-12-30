@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.jsf</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+    <param-value>.jsf</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
+    <param-name>facelets.DEVELOPMENT</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>facelets.REFRESH_PERIOD</param-name>
+    <param-value>1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>facelets.SKIP_COMMENTS</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>facelets.VIEW_MAPPINGS</param-name>
+    <param-value>*.jsf</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.trinidad.ALTERNATE_VIEW_HANDLER</param-name>
+    <param-value>com.sun.facelets.FaceletViewHandler</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.trinidad.USE_APPLICATION_VIEW_CACHE</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.trinidad.CHECK_FILE_MODIFICATION</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.trinidad.CHANGE_PERSISTENCE</param-name>
+    <param-value>session</param-value>
+  </context-param>
+  <context-param>
+    <param-name>org.apache.myfaces.trinidad.DISABLE_CONTENT_COMPRESSION</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>/faces/*</url-pattern>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>trinidad</filter-name>
+    <filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>trinidad</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+  </filter-mapping>
+  <filter>
+    <filter-name>MyFacesBugFixFilter</filter-name>
+    <filter-class>ch.orcasys.webwarp.util.jsf.MyFacesBugFixFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MyFacesBugFixFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>MyFacesExtensionsFilter</filter-name>
+    <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+    <init-param>
+      <param-name>maxFileSize</param-name>
+      <param-value>20m</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>MyFacesExtensionsFilter</filter-name>
+    <servlet-name>Faces Servlet</servlet-name>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>MyFacesExtensionsFilter</filter-name>
+    <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>MyFacesExtensionsFilter</filter-name>
+    <url-pattern>*.jsf</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>MyFacesExtensionsFilter</filter-name>
+    <url-pattern>/faces/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>resources</servlet-name>
+    <servlet-class>org.apache.myfaces.trinidad.webapp.ResourceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>resources</servlet-name>
+    <url-pattern>/adf/*</url-pattern>
+  </servlet-mapping>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Authentication Required</realm-name>
+  </login-config>
+  <security-role>
+    <description>The User role.</description>
+    <role-name>User</role-name>
+  </security-role>
+  <security-role>
+    <description>The Administrator role.</description>
+    <role-name>Administrator</role-name>
+  </security-role>
+  <security-constraint>
+    <display-name>Administrator access only</display-name>
+    <web-resource-collection>
+      <web-resource-name>The Admin area</web-resource-name>
+      <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>Required roles for the Admin area.</description>
+      <role-name>Administrator</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <security-constraint>
+    <display-name>Authenticated users only</display-name>
+    <web-resource-collection>
+      <web-resource-name>The User area</web-resource-name>
+      <url-pattern>/users/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <description>Required roles for the Admin area.</description>
+      <role-name>User</role-name>
+    </auth-constraint>
+  </security-constraint>
+</web-app>

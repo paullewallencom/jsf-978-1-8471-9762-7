@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12476002726030" configfile="/7627_06_Web/Web/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="register" x="49" y="192" id="pf12512193622510" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf12512193622511" path="/validateAll.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="success.jsf" x="180" y="192" id="pf12512193622512" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12512193622511" path="/success.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="order/out-of-stock.jsf" x="470" y="108" id="pf12512323037013" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf125126339444512" inlinks="pf12512323037014" path="/order/out-of-stock.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="order/step1.jsf" x="38" y="60" id="pf12512323037015" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf12512323037016" inlinks="pf125126339444513" path="/order/step1.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="order/step2.jsf" x="159" y="60" id="pf12512323037027" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf12512323037028 pf125126339444513" inlinks="pf12512323037016 pf125126339444514" path="/order/step2.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="order/step3.jsf" x="288" y="60" id="pf12512323037029" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf125123230370210 pf12512323037014 pf125126339444514" inlinks="pf12512323037028 pf125126339444512" path="/order/step3.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="order/success.jsf" x="480" y="12" id="pf125123230370211" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf125123230370210" path="/order/success.jsf"/>
+  <links id="pf12512193622511" target="pf12512193622512" source="pf12512193622510" outcome="success" redirect="true"/>
+  <links id="pf12512323037016" target="pf12512323037027" source="pf12512323037015" outcome="next" redirect="true"/>
+  <links id="pf12512323037028" target="pf12512323037029" source="pf12512323037027" outcome="next" redirect="true"/>
+  <links id="pf125123230370210" target="pf125123230370211" source="pf12512323037029" outcome="success" redirect="true"/>
+  <links id="pf12512323037014" target="pf12512323037013" source="pf12512323037029" outcome="out-of-stock" redirect="true">
+    <bendPoints d1Width="142" d1Height="47" d2Width="-59" d2Height="-1"/>
+  </links>
+  <links id="pf125126339444514" target="pf12512323037027" source="pf12512323037029" outcome="back" redirect="true">
+    <bendPoints d1Width="-71" d1Height="-33" d2Width="58" d2Height="-33"/>
+  </links>
+  <links id="pf125126339444513" target="pf12512323037015" source="pf12512323037027" outcome="back" redirect="true">
+    <bendPoints d1Width="-62" d1Height="-35" d2Width="59" d2Height="-35"/>
+  </links>
+  <links id="pf125126339444512" target="pf12512323037029" source="pf12512323037013" outcome="back" redirect="true">
+    <bendPoints d1Width="-91" d1Height="-48" d2Width="110"/>
+  </links>
+</pageflow:Pageflow>

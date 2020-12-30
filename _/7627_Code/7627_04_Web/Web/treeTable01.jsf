@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:treeTable example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:treeTable width="500px" var="file" value="#{backingBean.uploadedFilesTrinidadTreeModel}"
+			rendered="true" summary="File Information" rowBandingInterval="1">
+			<f:facet name="nodeStamp">
+				<tr:column>
+					<f:facet name="header">
+						<tr:outputText value="File Name" />
+					</f:facet>
+					<tr:outputText value="#{file.name}" />
+				</tr:column>
+			</f:facet>
+			<tr:column inlineStyle="text-align:right">
+				<f:facet name="header">
+					<tr:outputText value="File Size" />
+				</f:facet>
+				<tr:outputText value="#{file.size}">
+					<tr:convertNumber type="number" />
+				</tr:outputText>
+			</tr:column>
+			<tr:column inlineStyle="text-align:right">
+				<f:facet name="header">
+					<tr:outputText value="Last Modified" />
+				</f:facet>
+				<tr:outputText value="#{file.lastModified}">
+					<tr:convertDateTime type="both" timeStyle="short" />
+				</tr:outputText>
+			</tr:column>
+		</tr:treeTable>
+	</tr:form>
+</f:view>
+</body>
+</html>

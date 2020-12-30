@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>panelCollapsible example</title>
+<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<ice:panelGroup styleClass="pnlClpsblWrapper panelCollapsible">
+			<ice:panelCollapsible expanded="true">
+				<f:facet name="header">
+					<ice:panelGroup>
+						<ice:outputText value="Recommended" />
+					</ice:panelGroup>
+				</f:facet>
+				<ice:panelGrid width="100%">
+					<ice:panelSeries value="#{productBean.randomProducts}" var="product" rows="3">
+						<ice:panelGroup styleClass="productBox">
+							<ice:graphicImage url="/images/#{product.icon}" />
+							<ice:panelGroup styleClass="iceDatTblColHdr">
+								<ice:outputText value="#{product.name}" style="font-weight:bold;" />
+							</ice:panelGroup>
+							<ice:panelGroup style="padding:10px;">
+								<ice:outputText value="Category: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.productCategory.name}" />
+								<br />
+								<ice:outputText value="Price: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.price}">
+									<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+								</ice:outputText>
+								<br />
+								<ice:outputText value="In Stock: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.quantityInStock}" />
+							</ice:panelGroup>
+						</ice:panelGroup>
+					</ice:panelSeries>
+				</ice:panelGrid>
+			</ice:panelCollapsible>
+			<ice:panelCollapsible>
+				<f:facet name="header">
+					<ice:panelGroup>
+						<ice:outputText value="Most Popular" />
+					</ice:panelGroup>
+				</f:facet>
+				<ice:panelGrid>
+					<ice:panelSeries value="#{productBean.randomProducts}" var="product" rows="3">
+						<ice:panelGroup styleClass="productBox">
+							<ice:graphicImage url="/images/#{product.icon}" />
+							<ice:panelGroup styleClass="iceDatTblColHdr">
+								<ice:outputText value="#{product.name}" style="font-weight:bold;" />
+							</ice:panelGroup>
+							<ice:panelGroup style="padding:10px;">
+								<ice:outputText value="Category: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.productCategory.name}" />
+								<br />
+								<ice:outputText value="Price: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.price}">
+									<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+								</ice:outputText>
+								<br />
+								<ice:outputText value="In Stock: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.quantityInStock}" />
+							</ice:panelGroup>
+						</ice:panelGroup>
+					</ice:panelSeries>
+				</ice:panelGrid>
+			</ice:panelCollapsible>
+			<ice:panelCollapsible>
+				<f:facet name="header">
+					<ice:panelGroup>
+						<ice:outputText value="Favorites" />
+					</ice:panelGroup>
+				</f:facet>
+				<ice:panelGrid>
+					<ice:panelSeries value="#{productBean.randomProducts}" var="product" rows="3">
+						<ice:panelGroup styleClass="productBox">
+							<ice:graphicImage url="/images/#{product.icon}" />
+							<ice:panelGroup styleClass="iceDatTblColHdr">
+								<ice:outputText value="#{product.name}" style="font-weight:bold;" />
+							</ice:panelGroup>
+							<ice:panelGroup style="padding:10px;">
+								<ice:outputText value="Category: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.productCategory.name}" />
+								<br />
+								<ice:outputText value="Price: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.price}">
+									<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+								</ice:outputText>
+								<br />
+								<ice:outputText value="In Stock: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.quantityInStock}" />
+							</ice:panelGroup>
+						</ice:panelGroup>
+					</ice:panelSeries>
+				</ice:panelGrid>
+			</ice:panelCollapsible>
+			<ice:panelCollapsible>
+				<f:facet name="header">
+					<ice:panelGroup>
+						<ice:outputText value="Purchased" />
+					</ice:panelGroup>
+				</f:facet>
+				<ice:panelGrid>
+					<ice:panelSeries value="#{productBean.randomProducts}" var="product" rows="3">
+						<ice:panelGroup styleClass="productBox">
+							<ice:graphicImage url="/images/#{product.icon}" />
+							<ice:panelGroup styleClass="iceDatTblColHdr">
+								<ice:outputText value="#{product.name}" style="font-weight:bold;" />
+							</ice:panelGroup>
+							<ice:panelGroup style="padding:10px;">
+								<ice:outputText value="Category: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.productCategory.name}" />
+								<br />
+								<ice:outputText value="Price: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.price}">
+									<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+								</ice:outputText>
+								<br />
+								<ice:outputText value="In Stock: " style="font-weight:bold;" />
+								<ice:outputText value="#{product.quantityInStock}" />
+							</ice:panelGroup>
+						</ice:panelGroup>
+					</ice:panelSeries>
+				</ice:panelGrid>
+			</ice:panelCollapsible>
+		</ice:panelGroup>
+	</h:form>
+</f:view>
+</body>
+</html>

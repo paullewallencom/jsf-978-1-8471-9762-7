@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>f:convertNumber example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+<h:form>
+    <h:outputLabel value="Please enter a number: " />
+    <h:inputText id="number" value="#{backingBean.price}" />
+    <h:commandButton value="Submit" /><br />
+    <h:outputText value="Unconverted Number: " />
+    <h:outputText value="#{backingBean.price}" /><br />
+    <h:outputText value="Converted Number (Currency): " />
+    <h:outputText value="#{backingBean.price}">
+	  	<f:convertNumber maxFractionDigits="2" currencySymbol="$" type="currency" />
+    </h:outputText>
+  </h:form>  
+</f:view>
+</body>
+</html>

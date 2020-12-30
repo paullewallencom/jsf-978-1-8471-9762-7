@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:dataFilterSlider example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+	<h:outputLabel for="slider" value="Filter by Price" />
+	<rich:dataFilterSlider id="slider" for="productTable" forValRef="productBean.products" filterBy="getPrice" manualInput="true" storeResults="true" eventsQueue="sliderQueue" width="400px" startRange="0" endRange="9999" increment="100" trailer="true" handleValue="2500" />
+	<rich:dataTable id="productTable" value="#{productBean.products}" var="product" rows="5" columnsWidth="200, 150, 50, 10" columnClasses="left-aligned,left-aligned,right-aligned,centered" footerClass="centered">
+		<f:facet name="caption">
+			<h:outputText value="Company XYZ Product List" />
+		</f:facet>
+		<f:facet name="header">
+			<h:outputText value="Available Products" />
+		</f:facet>
+		<rich:column sortBy="#{product.name}">
+			<f:facet name="header">
+				<h:outputText value="Product Name" />
+			</f:facet>
+			<h:outputText value="#{product.name}" />
+		</rich:column>
+		<rich:column sortBy="#{product.category.name}">
+			<f:facet name="header">
+				<h:outputText value="Category" />
+			</f:facet>
+			<h:outputText value="#{product.category.name}" />
+		</rich:column>
+		<rich:column sortBy="#{product.price}">
+			<f:facet name="header">
+				<h:outputText value="Price" />
+			</f:facet>
+			<h:outputText value="#{product.price}">
+				<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+			</h:outputText>
+		</rich:column>
+		<rich:column sortBy="#{product.quantityInStock}">
+			<f:facet name="header">
+				<h:outputText value="Quantity in Stock" />
+			</f:facet>
+			<h:outputText value="#{product.quantityInStock}" />
+		</rich:column>
+		<f:facet name="footer">
+			<h:outputText value="New Products Available Next Week" />
+		</f:facet>
+	</rich:dataTable>
+</h:form>
+</body>
+</html>

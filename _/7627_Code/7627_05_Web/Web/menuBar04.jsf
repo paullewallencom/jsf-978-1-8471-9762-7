@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:menuPopup example</title>
+<ice:outputStyle href="/xmlhttp/css/xp/xp.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<ice:panelGroup styleClass="componentBox">
+			<ice:panelGroup styleClass="exampleBox menuPopupContainer menuPopupContainer" style="width:362px;height:122px;">
+				<ice:panelGroup style="padding:5px;" id="menuBarImage" menuPopup="menuPopupEffects">
+					<ice:graphicImage value="/images/Toco-Toucan.jpg" width="200" height="110" />
+				</ice:panelGroup>
+			</ice:panelGroup>
+			<ice:menuPopup id="menuPopupEffects" imageDir="/images">
+				<ice:menuItem id="effects" onclick="return false;" value="Effects">
+					<ice:menuItem id="shake" value="Shake" actionListener="#{menuPopupBean.executeMenuEffect}">
+						<f:param name="effectType" value="shake" />
+					</ice:menuItem>
+					<ice:menuItem id="highlight" value="Highlight" actionListener="#{menuPopupBean.executeMenuEffect}">
+						<f:param name="effectType" value="hightlight" />
+					</ice:menuItem>
+					<ice:menuItem id="pulsate" value="Pulsate" actionListener="#{menuPopupBean.executeMenuEffect}">
+						<f:param name="effectType" value="pulsate" />
+					</ice:menuItem>
+				</ice:menuItem>
+			</ice:menuPopup>
+		</ice:panelGroup>
+	</h:form>
+</f:view>
+</body>
+</html>

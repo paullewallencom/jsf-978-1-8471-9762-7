@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:validateRegExpr example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:panelGroup>
+				<h:outputLabel for="phoneNumber" value="#{bundle.phoneNumberLabel}" />
+				<t:inputTextHelp id="phoneNumber" value="#{customerBean.customer.phoneNumber}" helpText="XXX-XXX-XXXX">
+					<t:validateRegExpr message="#{bundle.invalidPhoneNumber}" pattern="\d{3}[\-\s]\d{3}[\-\s]\d{4}" />
+				</t:inputTextHelp>
+				<h:commandButton value="Submit" />
+			</h:panelGroup>
+			<h:message for="phoneNumber" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+		</h:panelGrid>
+	</h:form>
+</body>
+</f:view>
+</html>

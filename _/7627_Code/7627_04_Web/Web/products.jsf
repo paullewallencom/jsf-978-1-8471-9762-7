@@ -1,0 +1,39 @@
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad"><!-- InstanceBegin template="/Templates/template.dwt.jsf" codeOutsideHTMLIsLocked="false" -->
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>t:navigationPane example</title>
+<!-- InstanceEndEditable -->
+<f:loadBundle var="bundle" basename="messages" />
+<trh:styleSheet />
+<link rel="stylesheet" type="text/css" href="css/navigation.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:panelGrid columns="1">
+		<ui:include src="WEB-INF/includes/navigation.jsf" />    	 	
+	  <ui:include src="breadCrumbs03.jsf" />
+    <h:panelGroup> 
+	  <!-- InstanceBeginEditable name="content" -->
+		<h1>Products </h1> 
+    <tr:form>
+      <tr:panelGroupLayout layout="vertical" rendered="#{productBean.selectedProduct ne null}">
+      	<f:facet name="separator">
+        	<tr:spacer width="10" height="10" />
+        </f:facet>
+        <h:outputLabel value="Selected Product" styleClass="bold" />
+        <h:outputText value="#{productBean.selectedProduct.name}" />
+        <h:outputLabel value="Price" styleClass="bold" />
+        <h:outputText value="#{productBean.selectedProduct.price}">
+          <f:convertNumber type="currency" currencySymbol="$" />
+        </h:outputText>
+        <h:commandLink value="Place Order" action="#{productBean.placeOrder}" />
+      </tr:panelGroupLayout>
+    </tr:form>
+	<!-- InstanceEndEditable -->
+  	</h:panelGroup>
+  </h:panelGrid>
+</body>
+</f:view>
+<!-- InstanceEnd --></html>

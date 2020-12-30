@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:panelList example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	
+	<tr:panelList rows="1" maxColumns="1">
+		<tr:panelGroupLayout>
+			<tr:commandLink text="item 1" action="action.nothing" />
+		</tr:panelGroupLayout>
+		<tr:panelGroupLayout>
+			<tr:commandLink text="item 2" action="action.nothing" />
+			<tr:panelList rows="2" maxColumns="2">
+				<tr:commandLink text="item 2.1" action="action.nothing" />
+				<tr:commandLink text="item 2.2" action="action.nothing" />
+			</tr:panelList>
+		</tr:panelGroupLayout>
+	</tr:panelList>
+</f:view>
+</body>
+</html>

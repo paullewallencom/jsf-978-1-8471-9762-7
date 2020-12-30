@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:panelPopup example</title>
+<ice:outputStyle href="/xmlhttp/css/rime/rime.css" />
+<link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<ice:panelGroup styleClass="clearer" />
+		<ice:panelGroup styleClass="panelPopupContainer" style="float:left;text-align:center">
+			<ice:panelGroup style="height: 75px;">
+				<ice:panelGroup style="float:left">
+					<ice:outputLabel value="Modal Popup Message" for="modalMessageInput" />
+				</ice:panelGroup>
+				<ice:panelGroup styleClass="clearer" />
+				<ice:panelGroup style="float:left">
+					<ice:inputText id="modalMessageInput" value="#{popup.modalMessage}" disabled="#{popup.modalRendered}" size="30" maxlength="90" style="font-size:12px" />
+					<ice:commandButton id="toggleModal" value="#{popup.determineModalButtonText}" disabled="#{popup.modalRendered}" style="margin-right: 2px;font-size:12px" actionListener="#{popup.toggleModal}" />
+				</ice:panelGroup>
+			</ice:panelGroup>
+			<ice:panelPopup id="modalPnlPop" draggable="false" modal="true" visible="#{popup.modalRendered}" autoCentre="#{popup.autoCentre}" styleClass="corePopup">
+				<f:facet name="header">
+					<ice:panelGroup styleClass="popupHeaderWrapper">
+						<ice:outputText value="Modal Popup Dialog" styleClass="popupHeaderText" />
+						<ice:commandButton id="modalPnlCloseBtn" type="button" image="/images/close.gif" actionListener="#{popup.toggleModal}" styleClass="popupHeaderImage" title="Close Popup" alt="Close" />
+					</ice:panelGroup>
+				</f:facet>
+				<f:facet name="body">
+					<ice:panelGroup styleClass="popupBody">
+						<ice:outputText value="#{popup.modalMessage}" />
+						<br />
+						<ice:commandButton id="modalPnlCloseButton" type="submit" value="Close" actionListener="#{popup.toggleModal}" />
+					</ice:panelGroup>
+				</f:facet>
+			</ice:panelPopup>
+		</ice:panelGroup>
+	</h:form>
+</f:view>
+</body>
+</html>

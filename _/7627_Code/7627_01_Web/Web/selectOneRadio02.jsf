@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:selectOneRadio example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form id="form">
+    	<h:messages errorClass="error" />
+		<h:outputLabel value="Customer Satisfaction Survey" for="survey" />
+		<h:selectOneRadio id="survey" value="#{customerBean.customer.satisfactionLevel}" layout="pageDirection">
+			<f:selectItem itemLabel="Very Unsatisfied" itemValue="VERY_UNSATISFIED" />
+			<f:selectItem itemLabel="Somewhat Unsatisfied" itemValue="SOMEWHAT_UNSATISFIED" />
+			<f:selectItem itemLabel="Indifferent" itemValue="INDIFFERENT" />
+			<f:selectItem itemLabel="Somewhat Satisfied" itemValue="SOMEWHAT_SATISFIED" />
+			<f:selectItem itemLabel="Very Satisfied" itemValue="VERY_SATISFIED" />
+		</h:selectOneRadio>
+		<h:commandButton value="Submit" actionListener="#{customerBean.submitSurveyResponse}" />
+       	<h:outputText value="You are: #{customerBean.customer.satisfactionLevel}. Thanks for completing our survey." rendered="#{customerBean.customer.satisfactionLevel ne null}" styleClass="block-text" />
+	</h:form> 
+</body>
+</f:view>
+</html>

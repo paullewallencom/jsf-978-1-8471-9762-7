@@ -1,0 +1,40 @@
+<html xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<ui:composition>
+	<t:div styleClass="subnavigation_outer" rendered="#{enabled}">
+		<t:div styleClass="subnavigation">
+			<h:form>
+				<t:panelNavigation2 layout="list" itemClass="mypage" activeItemClass="selected" openItemClass="selected" renderAll="#{true}">
+					<t:commandNavigation2 externalLink="index.jsf" activeOnViewIds="/index.jsf">
+						<h:outputText value="Home" />
+					</t:commandNavigation2>
+					<t:commandNavigation2 externalLink="about.jsf" activeOnViewIds="/about.jsf">
+						<h:outputText value="About" />
+					</t:commandNavigation2>
+					<t:navigationMenuItems value="#{productBean.productsNavigationMenuItemPush}" />				
+					<t:commandNavigation2 externalLink="services.jsf" activeOnViewIds="/services.jsf">
+						<h:outputText value="Services" />
+						<t:commandNavigation2 externalLink="integration.jsf" activeOnViewIds="/integration.jsf">
+							<h:outputText value="Integration" />
+						</t:commandNavigation2>
+						<t:commandNavigation2 externalLink="training.jsf" activeOnViewIds="/training.jsf">
+							<h:outputText value="Training" />
+						</t:commandNavigation2>
+						<t:commandNavigation2 externalLink="support.jsf" activeOnViewIds="/support.jsf">
+							<h:outputText value="Support" />
+						</t:commandNavigation2>
+					</t:commandNavigation2>
+					<t:commandNavigation2 externalLink="contact.jsf" activeOnViewIds="/contact.jsf">
+						<h:outputText value="Contact Us" />
+					</t:commandNavigation2>
+				</t:panelNavigation2>
+			</h:form>
+		</t:div>
+	</t:div>
+</ui:composition>
+</body>
+</html>

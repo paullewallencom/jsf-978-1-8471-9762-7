@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:inputListOfValues example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:table summary="Product Table" value="#{productBean.products}"
+			binding="#{productBean.productsTable}" var="product" rows="10"
+			rowSelection="single">
+			<f:facet name="footer">
+				<h:panelGroup>
+					<tr:commandButton text="OK"
+						actionListener="#{productBean.closeProductDialog}">
+						<f:param id="selectedProduct" name="selectedProduct"
+							value="#{product}" />
+					</tr:commandButton>
+					<tr:commandButton text="Cancel"
+						actionListener="#{productBean.cancelDialog}" />
+				</h:panelGroup>
+			</f:facet>
+			<tr:column>
+				<f:facet name="header">
+					<tr:outputText value="Products" />
+				</f:facet>
+				<tr:outputText value="#{product.name}" />
+			</tr:column>
+		</tr:table>
+	</tr:form>
+</f:view>
+</body>
+</html>

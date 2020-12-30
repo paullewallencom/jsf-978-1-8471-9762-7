@@ -1,0 +1,163 @@
+/** Vertical navigation menu **/
+
+.subnavigation {
+	margin-left: 0px;
+	margin-right: 20px;
+	padding: 0px;
+	border: 1px solid #546359;
+	background-color: #EAF4F4;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+.subnavigation_outer {
+	width: 300px;
+	padding: 0px;
+	margin: 0px;
+}
+.subnavigation_outer h1  {
+	font-size: 1.5em;
+	margin: 0px;
+	padding: 0px;
+}
+
+.subnavigation ul li  a {
+	display:block;
+	background-color: #D1E4E4;
+	color: #294747;
+	text-decoration: none;
+	border-bottom: 1px solid #87A8A8;
+	padding: 2px 20px;
+	margin: 0px;
+}
+
+.subnavigation ul li a:visited {color:#294747;}
+.subnavigation ul li a:hover {color: #FFFFFF;  background-color: #87A8A8;}
+.subnavigation ul li a:active { color:#294747;}
+
+.subnavigation ul li a.selected {
+	font-weight: bold;
+	color:#294747;
+	background-color: #FFFFFF;
+}
+
+.subnavigation ul ul li a {
+	padding: 2px 20px 2px 25px;
+	margin: 0px;
+	background-color: #FFFFFF;}
+
+.subnavigation ul ul li ul li a {
+	padding: 2px 20px 2px 30px;
+	margin: 0px;
+}
+
+.subnavigation ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.subnavigation li{
+	margin: 0px;
+	padding: 0px;
+	display:inline;
+}
+
+.subnavigation ul.mypage li a {
+	padding: 2px 20px 2px 20px;
+	background-color: #D1E4E4;
+	margin: 0px;
+	background-color: #EAF4F4;
+}
+
+.subnavigation ul.mypage ul li a:hover {color: #FFFFFF;  background-color: #87A8A8;}
+
+
+/** Horizontal navigation menu **/
+
+#horizontal-nav {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	margin: 0;
+	padding: 0;   
+	height: 60px;
+	width: 350px;
+}
+#horizontal-nav ul {    
+    padding: 0;
+    margin: 0;    
+}
+#horizontal-nav ul li ul {
+    margin: 0;
+    padding: 0;
+}
+#horizontal-nav ul a {
+    text-decoration: none;
+}
+#horizontal-nav ul li {
+    margin: 0;
+    float: left;
+    display: block;
+    padding-right: 5px;
+}
+#horizontal-nav ul li ul {
+    display: none;
+}
+#horizontal-nav ul li.off ul, #horizontal-nav ul li.on ul {
+    position: absolute;
+    top: 36px;
+    *top: 44px; /* adjust for IE */
+    background: #224d6f;    
+    left: 13px;
+    *left: 15px;
+    width: 350px;
+}
+
+#horizontal-nav ul li.on ul {    
+    display: block;
+    background: #f90;
+}
+#horizontal-nav ul li.on:hover ul, #horizontal-nav ul li.over ul { /*for ie*/
+    background: #224d6f;
+}
+#horizontal-nav ul li a {
+    color: #224d6f;
+    font-weight: bold;
+    display: block;
+    padding: 5;
+}
+#horizontal-nav ul li.on a {   
+    color: #fff;
+    background: #f90;
+}
+#horizontal-nav ul li.on ul a, #horizontal-nav ul li.off ul a {
+    float: left; /*ie doesn't inherit the float*/
+    border: 0;
+    color: #f90;
+    width: auto;    
+}
+#horizontal-nav ul li.on:hover ul a, #horizontal-nav ul li.over ul li a { /*for ie - the specificity is necessary*/
+    background: #224d6f;
+}
+#horizontal-nav ul li.off:hover ul, #horizontal-nav ul li.over ul {
+    display: block;
+    z-index: 6000;
+}		
+#horizontal-nav ul li.off a:hover, #horizontal-nav ul li:hover a, #horizontal-nav ul li.over a {
+    background: #29497b;
+    color: #f90;
+}
+#horizontal-nav ul li.off a:hover, #horizontal-nav ul li.on a:hover { 
+    color: #f90;
+}		
+
+#horizontal-nav ul li.off ul a {
+    display: block;
+    background: #224d6f;
+    color: #fff;    
+}		
+#horizontal-nav ul li.on ul a {       
+    display: block;
+    background: #f90;
+    color: #fff;    
+}

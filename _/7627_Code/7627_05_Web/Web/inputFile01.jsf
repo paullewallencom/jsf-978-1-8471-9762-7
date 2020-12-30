@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:inputFile example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<ice:form>
+		<ice:inputFile id="inputFileName" width="600" progressListener="#{backingBean.fileUploadProgress}" actionListener="#{backingBean.uploadFile}" />
+		<ice:outputProgress value="#{backingBean.fileProgress}" styleClass="uploadProgressBar" />
+		<ice:panelGroup>
+			<h:messages layout="table" globalOnly="false" showDetail="true" showSummary="false" />
+		</ice:panelGroup>
+		<ice:panelGroup>
+			<h:messages layout="table" globalOnly="false" showDetail="true" showSummary="false" />
+		</ice:panelGroup>
+		<ice:panelGroup>
+			<ice:dataTable width="450px" value="#{backingBean.fileList}" var="data">
+				<ice:column>
+					<f:facet name="header">
+						<ice:outputLabel value="File Name" />
+					</f:facet>
+					<ice:outputText value="#{data.file.name}" />
+				</ice:column>
+			</ice:dataTable>
+		</ice:panelGroup>
+	</ice:form>
+</body>
+</f:view>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>f:validateLongRange example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+<h:form>
+    <h:outputLabel value="Please enter a number between 1 and 10: " />
+    <h:inputText id="number" value="#{backingBean.number}" label="Number">
+    	<f:validateLongRange minimum="1" maximum="10" />
+    </h:inputText>
+    <h:commandButton value="Submit" /><br />
+ 		<h:message for="number" errorStyle="color:red" />
+    <h:outputText value="You entered: #{backingBean.number}" rendered="#{backingBean.number ne null}" />
+  </h:form>
+</f:view>
+</body>
+</html>

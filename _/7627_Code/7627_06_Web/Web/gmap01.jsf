@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:gmap example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<h:form id="mapForm">
+	<rich:gmap id="gmap" gmapVar="map" mapType="G_NORMAL_MAP" showGScaleControl="#{false}" />
+	<a4j:jsFunction name="showLocation" data="#{mapBean.selectedLocation}" reRender="zoom" oncomplete="map.setCenter(new GLatLng(data.latitude, data.longitude),data.zoom)" />
+  <h:panelGrid columns="2">
+		<rich:inputNumberSlider id="zoom" showInput="false" minValue="1" maxValue="18" onchange="map.setZoom(this.value)" />
+		<h:selectOneMenu value="#{mapBean.selectedLocation}" converter="locationConverter">
+			<s:selectItems noSelectionLabel="Select Location" value="#{mapBean.locations}" var="item" label="#{item.name}" />
+			<a4j:support event="onchange" oncomplete="showLocation()" />
+    </h:selectOneMenu>
+	</h:panelGrid>
+</h:form>
+</body>
+</html>

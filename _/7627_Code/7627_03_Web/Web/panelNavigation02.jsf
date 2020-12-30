@@ -1,0 +1,44 @@
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:panelNavigation example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:form>
+		<t:panelNavigation separatorStyle="border-bottom:1px solid silver; padding-bottom:10px">
+    <h:outputLink value="index.jsf">
+					<h:outputText value="Home" />
+				</h:outputLink>
+			<t:navigationMenuItem>
+				<h:outputLink value="index.jsf">
+					<h:outputText value="Home" />
+				</h:outputLink>
+			</t:navigationMenuItem>
+			<t:navigationMenuItem>
+				<h:outputLink value="about.jsf">
+					<h:outputText value="About" />
+				</h:outputLink>
+			</t:navigationMenuItem>
+			<t:navigationMenuItem>
+				<h:outputLink value="products.jsf">
+					<h:outputText value="Products" />
+				</h:outputLink>
+			</t:navigationMenuItem>
+			<t:navigationMenuItem>
+				<h:outputLink value="services.jsf">
+					<h:outputText value="Services" />
+				</h:outputLink>
+			</t:navigationMenuItem>
+			<t:navigationMenuItem>
+				<h:outputLink value="contact.jsf">
+					<h:outputText value="Contact Us" />
+				</h:outputLink>
+			</t:navigationMenuItem>
+		</t:panelNavigation>
+	</h:form>
+</body>
+</f:view>
+</html>

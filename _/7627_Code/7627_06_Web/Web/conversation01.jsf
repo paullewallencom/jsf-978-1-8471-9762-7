@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Seam conversation example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:panelGrid columns="2" cellpadding="10">
+	<h:form>
+		<rich:panel>
+			<f:facet name="header">
+				<h:outputText value="Shipping Calculator (No Conversation)" />
+			</f:facet>
+			<h:panelGrid columns="1" width="100%">      	
+ 				<h:outputLabel value="Select Product: " for="product" />
+				<h:selectOneMenu id="product" value="#{shippingCalculatorBean.product}">
+					<s:selectItems var="product" value="#{productBean.products}" label="#{product.name}" noSelectionLabel="Select" />
+					<a4j:support event="onchange" reRender="button" />
+          <s:convertEntity />
+				</h:selectOneMenu>
+				<h:outputLabel value="Select Shipping Destination: " for="country" />
+				<h:selectOneMenu id="country" value="#{shippingCalculatorBean.country}">
+					<s:selectItems var="country" value="#{customerBean.countries}" label="#{country.name}" noSelectionLabel="Select" />
+					<a4j:support event="onchange" reRender="button" /><s:convertEntity />
+				</h:selectOneMenu>
+        <h:panelGrid columns="1" columnClasses="centered" width="100%">
+          <a4j:commandButton id="button" value="Calculate" disabled="#{shippingCalculatorBean.country eq null or shippingCalculatorBean.product eq null}" reRender="total" />
+          <h:panelGroup>
+            <h:outputText value="Total Shipping Cost: " />
+            <h:outputText id="total" value="#{shippingCalculatorBean.total}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </h:panelGroup>
+        </h:panelGrid>
+			</h:panelGrid>
+		</rich:panel>
+	</h:form>
+	<h:form>		
+    <rich:panel>
+			<f:facet name="header">
+				<h:outputText value="Shipping Calculator (with Temporary Conversation)" />
+			</f:facet>
+			<h:panelGrid columns="1">
+				<h:outputLabel value="Select Product: " for="product" />
+				<h:selectOneMenu id="product" value="#{shippingCalculatorBeanSeam.product}">
+					<s:selectItems var="product" value="#{productBean.products}" label="#{product.name}" noSelectionLabel="Select" />
+					<a4j:support event="onchange" reRender="button" /><s:convertEntity />
+				</h:selectOneMenu>
+				<h:outputLabel value="Select Shipping Destination: " for="country" />
+				<h:selectOneMenu id="country" value="#{shippingCalculatorBeanSeam.country}">
+					<s:selectItems var="country" value="#{customerBean.countries}" label="#{country.name}" noSelectionLabel="Select" />
+					<a4j:support event="onchange" reRender="button" /><s:convertEntity />
+				</h:selectOneMenu>
+				<h:panelGrid columns="1" columnClasses="centered" width="100%">
+          <a4j:commandButton id="button" value="Calculate" disabled="#{shippingCalculatorBeanSeam.country eq null or shippingCalculatorBeanSeam.product eq null}" reRender="total" />
+          <h:panelGroup>
+            <h:outputText value="Total Shipping Cost: " />
+            <h:outputText id="total" value="#{shippingCalculatorBeanSeam.total}">
+              <f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+            </h:outputText>
+          </h:panelGroup>
+        </h:panelGrid>
+			</h:panelGrid>
+		</rich:panel>
+	</h:form>
+</h:panelGrid>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:t="http://myfaces.apache.org/tomahawk">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:dataScroller example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+<h:form>
+	<h2>Customer Directory</h2>
+    <t:dataTable id="dataTable" value="#{customerBean.customerList}" var="customer" rowClasses="row-even,row-odd" columnClasses="left-aligned,left-aligned,centered,left-aligned" styleClass="dataTable" sortable="#{true}" border="2" cellpadding="5" cellspacing="2" rows="5">
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Full Name" />
+            </f:facet>
+            <h:outputText value="#{customer.fullName}" />
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Birth Date" />
+            </f:facet>
+            <h:outputText value="#{customer.birthDate}">
+            	<f:convertDateTime type="date" dateStyle="medium" />
+            </h:outputText>
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Phone Number" />
+            </f:facet>
+            <h:outputText value="#{customer.phoneNumber}" />
+        </h:column>
+    	<h:column>
+        	<f:facet name="header">
+            	<h:outputText value="Country of Origin" />
+            </f:facet>
+            <h:outputText value="#{customer.countryOfOrigin.name}" />
+        </h:column>                        
+    </t:dataTable>
+    <h:panelGrid columns="2" styleClass="dataTable" columnClasses="left-aligned,right-aligned">
+        <t:dataScroller for="dataTable" paginator="#{true}" paginatorMaxPages="10" paginatorActiveColumnStyle="font-weight:bold;" immediate="#{true}" />
+        <t:dataScroller for="dataTable" paginator="#{false}" pageCountVar="pageCount" pageIndexVar="pageIndex">
+            <h:outputFormat value="Page {0} of {1}">
+                <f:param value="#{pageIndex}" />
+                <f:param value="#{pageCount}" />    	
+            </h:outputFormat>
+        </t:dataScroller>
+    </h:panelGrid>
+</h:form>
+</body>
+</f:view>
+</html>

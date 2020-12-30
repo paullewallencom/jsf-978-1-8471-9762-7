@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+	<application>
+		<message-bundle>messages</message-bundle>
+		<!--
+			The FaceletViewHandler declaration must be removed for Trinidad:
+			<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		-->
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>fr</supported-locale>
+			<supported-locale>es</supported-locale>
+		</locale-config>
+		<!-- Use the Trinidad RenderKit -->
+		<default-render-kit-id>org.apache.myfaces.trinidad.core</default-render-kit-id>
+	</application>
+	<converter>
+		<description>This converter handles conversion between String and Country objects.</description>
+		<display-name>Country Converter</display-name>
+		<converter-id>countryConverter</converter-id>
+		<converter-class>chapter4.converter.CountryConverter</converter-class>
+	</converter>
+	<managed-bean>
+		<description>A simple backing bean example.</description>
+		<managed-bean-name>backingBean</managed-bean-name>
+		<managed-bean-class>chapter4.bean.BackingBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>productBean</property-name>
+			<property-class>chapter4.bean.ProductBean</property-class>
+			<value>#{productBean}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>This bean supports customer-related properties and events.</description>
+		<managed-bean-name>customerBean</managed-bean-name>
+		<managed-bean-class>chapter4.bean.CustomerBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>This managed bean handles product related data and events.</description>
+		<managed-bean-name>productBean</managed-bean-name>
+		<managed-bean-class>chapter4.bean.ProductBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>customerBean</property-name>
+			<property-class>chapter4.bean.CustomerBean</property-class>
+			<value>#{customerBean}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>Backing bean to handle Trinidad dialog interaction.</description>
+		<managed-bean-name>dialogBean</managed-bean-name>
+		<managed-bean-class>chapter4.bean.DialogBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>This backing bean handles Trinidad chart related events.</description>
+		<managed-bean-name>chartBean</managed-bean-name>
+		<managed-bean-class>chapter4.bean.ChartBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>customerBean</property-name>
+			<property-class>chapter4.bean.CustomerBean</property-class>
+			<value>#{customerBean}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
+		<description>The XML menu model for a navigation menu.</description>
+		<managed-bean-name>navigationMenuModel</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.trinidad.model.XMLMenuModel</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>source</property-name>
+			<property-class>java.lang.String</property-class>
+			<value>/WEB-INF/menu-metadata.xml</value>
+		</managed-property>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>products</from-outcome>
+			<to-view-id>/products.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>dialog:showDialog</from-outcome>
+			<to-view-id>/dialog02.jsf</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>dialog:showProductSelectionDialog</from-outcome>
+			<to-view-id>/inputListOfValues01_dialog.jsf</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>about</from-outcome>
+			<to-view-id>/about.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/index.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>services</from-outcome>
+			<to-view-id>/services.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>contact</from-outcome>
+			<to-view-id>/contact.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>processChoiceBar01</from-outcome>
+			<to-view-id>/processChoiceBar01_1.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>processChoiceBar02</from-outcome>
+			<to-view-id>/processChoiceBar01_2.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>processChoiceBar03</from-outcome>
+			<to-view-id>/processChoiceBar01_3.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>processChoiceBar04</from-outcome>
+			<to-view-id>/processChoiceBar01_4.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>processChoiceBar05</from-outcome>
+			<to-view-id>/processChoiceBar01_5.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>train_1</from-outcome>
+			<to-view-id>/train01_1.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>train_2</from-outcome>
+			<to-view-id>/train01_2.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>train_3</from-outcome>
+			<to-view-id>/train01_3.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>train_4</from-outcome>
+			<to-view-id>/train01_4.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>train_5</from-outcome>
+			<to-view-id>/train01_5.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>outofstock</from-outcome>
+			<to-view-id>/outofstock.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>order</from-outcome>
+			<to-view-id>/orderform.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<validator>
+		<description>This birthdate validator checks a date to make sure it is within the last 120 years.</description>
+		<display-name>Custom Date Validator</display-name>
+		<validator-id>customDateValidator</validator-id>
+		<validator-class>chapter4.validator.CustomDateValidator</validator-class>
+	</validator>
+</faces-config>

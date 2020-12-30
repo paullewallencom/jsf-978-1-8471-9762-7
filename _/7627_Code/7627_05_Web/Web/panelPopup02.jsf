@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ice:panelPopup example</title>
+<ice:outputStyle href="/xmlhttp/css/rime/rime.css" />
+<link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<ice:panelGroup styleClass="clearer" />
+		<ice:panelGroup styleClass="panelPopupContainer"
+			style="float:left;text-align:center">
+
+			<!-- Draggable set up options -->
+			<ice:panelGroup styleClass="exampleBox panelPopupExampleContainer"
+				style="height: 75px;">
+				<ice:panelGroup style="float:left">
+					<ice:outputLabel value="Draggable Popup Message"
+						for="draggableMessageInput" />
+				</ice:panelGroup>
+
+				<ice:panelGroup styleClass="clearer" />
+				<ice:panelGroup style="float:left">
+					<ice:inputText id="draggableMessageInput"
+						value="#{popup.draggableMessage}"
+						disabled="#{popup.draggableRendered}" size="30" maxlength="90"
+						style="font-size:12px" />
+					<ice:commandButton id="toggleDraggable"
+						value="#{popup.determineDraggableButtonText}"
+						disabled="#{popup.draggableRendered}" style="font-size:12px"
+						actionListener="#{popup.toggleDraggable}" />
+				</ice:panelGroup>
+				<ice:panelGroup styleClass="clearer" />
+				<ice:panelGrid style="float:left" columns="2" cellspacing="2"
+					cellpadding="3">
+					<ice:outputLabel value="Auto Center" for="autoCentreCheck" />
+					<ice:selectBooleanCheckbox id="autoCentreCheck"
+						value="#{popup.autoCentre}"
+						disabled="#{popup.draggableRendered or popup.modalRendered}" />
+				</ice:panelGrid>
+			</ice:panelGroup>
+
+
+			<!-- Draggable Panel Popup -->
+			<ice:panelPopup id="draggablePnlPop" draggable="true" modal="false"
+				rendered="#{popup.draggableRendered}"
+				visible="#{popup.draggableRendered}"
+				autoCentre="#{popup.autoCentre}" styleClass="corePopup">
+				<f:facet name="header">
+					<ice:panelGroup styleClass="popupHeaderWrapper">
+						<ice:outputText value="Draggable Popup Dialog"
+							styleClass="popupHeaderText" />
+						<ice:commandButton id="draggablePnlCloseBtn" type="button"
+							image="/images/close.gif"
+							actionListener="#{popup.toggleDraggable}"
+							styleClass="popupHeaderImage" title="Close Popup" alt="Close" />
+					</ice:panelGroup>
+				</f:facet>
+				<f:facet name="body">
+					<ice:panelGroup styleClass="popupBody">
+						<ice:outputText value="#{popup.draggableMessage}" />
+						<br />
+						<ice:commandButton id="draggablePnlCloseButton" type="submit"
+							value="Close" actionListener="#{popup.toggleDraggable}" />
+					</ice:panelGroup>
+				</f:facet>
+			</ice:panelPopup>
+		</ice:panelGroup>
+	</h:form>
+</f:view>
+</body>
+</html>

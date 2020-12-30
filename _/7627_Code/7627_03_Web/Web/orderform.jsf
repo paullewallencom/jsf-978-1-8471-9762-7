@@ -1,0 +1,48 @@
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>t:panelNavigation example</title>
+<f:loadBundle var="bundle" basename="messages" />
+<link rel="stylesheet" type="text/css" href="css/navigation.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h1>Product Order Form</h1>
+	<h:form id="orderForm">
+		<h:panelGrid columns="3">
+			<h:outputLabel for="firstName" value="#{bundle.firstNameLabel}" />
+			<h:inputText id="firstName" value="#{productBean.order.customer.firstName}" required="#{true}" />
+			<h:message for="firstName" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel value="#{bundle.lastNameLabel}" for="lastName" />
+			<h:inputText id="lastName" value="#{productBean.order.customer.lastName}" required="#{true}" />
+			<h:message for="lastName" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputLabel for="phoneNumber" value="#{bundle.phoneNumberLabel}" />
+			<t:inputTextHelp id="phoneNumber" value="#{productBean.order.customer.phoneNumber}" helpText="XXX-XXX-XXXX">
+				<t:validateRegExpr message="#{bundle.invalidPhoneNumber}" pattern="\d{3}[\-\s]\d{3}[\-\s]\d{4}" />
+			</t:inputTextHelp>
+			<h:message for="phoneNumber" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+			<h:outputLabel for="emailAddress" value="#{bundle.emailAddressLabel}" />
+			<h:inputText id="emailAddress" value="#{productBean.order.customer.emailAddress}" required="#{true}">
+				<t:validateEmail message="The email address you have entered is not valid." />
+			</h:inputText>
+			<h:message for="emailAddress" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+			<h:outputLabel for="emailAddressConfirm" value="#{bundle.emailAddressConfirmLabel}" />
+			<h:inputText id="emailAddressConfirm" required="#{true}">
+				<t:validateEqual for="emailAddress" message="The email addresses you have entered do not match." />
+			</h:inputText>
+			<h:message for="emailAddressConfirm" errorClass="error" showSummary="#{false}" showDetail="#{true}" />
+			<h:outputLabel value="#{bundle.countryLabel}" for="country" required="#{true}" />
+			<h:selectOneMenu id="country" value="#{productBean.order.customer.countryOfOrigin}" required="#{true}">
+				<f:selectItem itemLabel="Select" itemValue="" />
+				<f:selectItems value="#{customerBean.countrySelectItems}" />
+				<f:converter converterId="countryConverter" />
+			</h:selectOneMenu>
+			<h:message for="country" errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+			<h:outputText value="" />
+			<h:commandButton value="Submit Order" action="#{productBean.submitOrder}" />
+		</h:panelGrid>
+	</h:form>
+</body>
+</f:view>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="7627_06_Application" default="sync">
+	<description>
+            Build/deployment for JSF book examples. 
+    </description>
+
+	<property file="build.properties" />
+
+	<path id="build.path">
+		<fileset dir="Content" includes="**/*.jar" />
+		<fileset dir="../7627_${chapter}_EJB/lib" includes="**/*.jar" />
+		<fileset dir="../7627_${chapter}_Web/lib" includes="**/*.jar" />
+		<pathelement path="${java.io.tmpdir}/7627/EJB" />
+	</path>
+
+	<target name="setup" unless="ear.deployed">
+		<delete dir="${java.io.tmpdir}/7627" />
+		<mkdir dir="${java.io.tmpdir}/7627/Web" />
+		<mkdir dir="${java.io.tmpdir}/7627/EJB" />
+		<mkdir dir="${java.io.tmpdir}/7627/Ear" />
+		<delete file="${deploy.dir}/7627_${chapter}_Application.ear" />
+		<delete dir="${deploy.dir}/7627_${chapter}_Application.ear" />
+	</target>
+
+	<target name="undeploy" unless="ear.deployed">
+		<delete dir="${deploy.dir}/7627_${chapter}_Application.ear" />
+	</target>
+
+	<target name="deploy" unless="ear.deployed" depends="undeploy,setup,build-ejb-jar,build-war,build-ear" description="Deploys an exploded ear file.">
+		<unzip dest="${deploy.dir}/7627_${chapter}_Application.ear" src="${java.io.tmpdir}/7627/7627_${chapter}_Application.ear" />
+		<unzip dest="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web" src="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web.war" />
+		<delete file="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web.war" />
+		<move file="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web" tofile="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web.war" />
+	</target>
+
+	<target name="build-ear" unless="ear.deployed">
+		<ear destfile="${java.io.tmpdir}/7627/7627_${chapter}_Application.ear" appxml="Content/META-INF/application.xml" manifest="Content/META-INF/MANIFEST.MF">
+			<zipfileset dir="Content" excludes="META-INF/application.xml,META-INF/MANIFEST.MF" />
+			<zipfileset dir="${java.io.tmpdir}/7627/Ear" />
+		</ear>
+	</target>
+
+	<target name="build-war" unless="ear.deployed">
+		<javac debug="${debug.enabled}" classpathref="build.path" srcdir="../7627_${chapter}_Web/src" destdir="${java.io.tmpdir}/7627/Web" />
+		<war destfile="${java.io.tmpdir}/7627/EAR/7627_${chapter}_Web.war" webxml="../7627_${chapter}_Web/Web/WEB-INF/web.xml">
+			<zipfileset dir="../7627_${chapter}_Web/Web" />
+		</war>
+	</target>
+
+	<target name="build-ejb-jar" unless="ear.deployed">
+		<javac debug="${debug.enabled}" classpathref="build.path" srcdir="../7627_${chapter}_EJB/src" destdir="${java.io.tmpdir}/7627/EJB" />
+		<jar destfile="${java.io.tmpdir}/7627/EAR/7627_${chapter}_EJB.jar" manifest="../7627_${chapter}_EJB/src/META-INF/MANIFEST.MF" duplicate="fail">
+			<fileset dir="${java.io.tmpdir}/7627/EJB" />
+			<zipfileset dir="../7627_${chapter}_EJB/src" excludes="**/*.java" />
+		</jar>
+	</target>
+
+	<target name="check-deploy">
+		<available file="${deploy.dir}/7627_${chapter}_Application.ear" property="ear.deployed" />
+	</target>
+	
+	<target name="sync" description="This target synchronizes the deployed web application." depends="check-deploy,deploy">
+		<sync todir="${deploy.dir}/7627_${chapter}_Application.ear/7627_${chapter}_Web.war">
+			<fileset dir="../7627_${chapter}_Web/Web/" />
+		</sync>
+	</target>
+
+</project>

@@ -1,0 +1,29 @@
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad"><!-- InstanceBegin template="/Templates/template.dwt.jsf" codeOutsideHTMLIsLocked="false" -->
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>t:navigationPane example</title>
+<!-- InstanceEndEditable -->
+<f:loadBundle var="bundle" basename="messages" />
+<trh:styleSheet />
+<link rel="stylesheet" type="text/css" href="css/navigation.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+	<h:panelGrid columns="1">
+		<ui:include src="WEB-INF/includes/navigation.jsf" />    	 	
+	  <ui:include src="breadCrumbs03.jsf" />
+    <h:panelGroup> 
+	  <!-- InstanceBeginEditable name="content" -->
+		<h1>About</h1>
+    <ul>
+    <li><a href="company/index.jsf">Company</a></li>
+    <li><a href="company/investors/index.jsf">Investors</a></li>
+    </ul>
+<!-- InstanceEndEditable -->
+  	</h:panelGroup>
+  </h:panelGrid>
+</body>
+</f:view>
+<!-- InstanceEnd --></html>

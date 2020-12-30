@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:processChoiceBar example</title>
+<trh:styleSheet />
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+	<tr:form>
+		<tr:processChoiceBar  var="node" value="#{backingBean.processMenuModel}" shortDesc="Select step">
+			<f:facet name="nodeStamp">
+				<tr:commandNavigationItem text="#{node.label}" action="#{node.action}" />
+			</f:facet>
+		</tr:processChoiceBar>
+	</tr:form>
+	<h1>Step 5</h1>
+</f:view>
+</body>
+</html>

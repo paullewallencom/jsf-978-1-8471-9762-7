@@ -1,0 +1,23 @@
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad">
+<f:view>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>t:navigationPane example</title>
+<!-- TemplateEndEditable -->
+<f:loadBundle var="bundle" basename="messages" />
+<trh:styleSheet />
+<link rel="stylesheet" type="text/css" href="../css/navigation.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+</head>
+<body>
+	<h:panelGrid columns="1">
+		<ui:include src="../WEB-INF/includes/navigation.jsf" />    	 	
+	  <ui:include src="../breadCrumbs03.jsf" />
+    <h:panelGroup> 
+	  <!-- TemplateBeginEditable name="content" -->content<!-- TemplateEndEditable -->
+  	</h:panelGroup>
+  </h:panelGrid>
+</body>
+</f:view>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:dataGrid example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+	<rich:dataGrid id="productGrid" value="#{productBean.products}" align="center" var="product" columns="3" elements="6" border="4" cellpadding="5" cellspacing="3" footerClass="centered">
+		<f:facet name="caption">
+			<h:outputText value="Company XYZ Product List" />
+		</f:facet>
+		<f:facet name="header">
+			<h:outputText value="New Products" />
+		</f:facet>
+		<f:facet name="footer">
+			<h:outputText value="Review Latest Products Every Week" />
+		</f:facet>
+		<rich:panel>
+					<f:facet name="header">
+						<h:outputText value="#{product.name}" />
+					</f:facet>
+					<h:panelGrid columns="2" width="100%" columnClasses="align-top">
+						<h:outputText value="Category:" />
+						<h:outputText value="#{product.category.name}" />
+						<h:outputText value="Price:" />
+						<h:outputText value="#{product.price}">
+							<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+						</h:outputText>
+						<h:outputText value="In Stock:" />
+						<h:panelGroup>
+							<h:outputText value="#{product.quantityInStock}" />
+							<h:graphicImage url="/images/#{product.icon}" style="float:right;" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</rich:panel>
+	</rich:dataGrid>
+  <rich:datascroller for="productGrid" maxPages="5" align="center" boundaryControls="show" fastControls="show" fastStep="2" stepControls="show" page="3" />
+</h:form>
+</body>
+</html>

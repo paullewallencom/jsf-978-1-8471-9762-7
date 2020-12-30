@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ui:fragment example</title>
+</head>
+<body>
+<h:form>
+  Text before will be rendered.
+  <ui:fragment>
+  <p>A fragment adds a component to the view but does not trim any content.</p>
+  </ui:fragment>
+  Text after will be rendered.
+	<ui:debug />
+</h:form>
+</body>
+</html>

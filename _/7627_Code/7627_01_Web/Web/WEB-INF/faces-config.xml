@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+	version="1.2">
+	<application>
+		<!-- JSF 1.2 internationalization 
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>bundle</var>
+		</resource-bundle>
+		-->
+		<message-bundle>messages</message-bundle>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>fr</supported-locale>
+			<supported-locale>es</supported-locale>
+		</locale-config>
+	</application>
+	<converter>
+		<description>This converter handles conversion between String and Country objects.</description>
+		<display-name>Country Converter</display-name>
+		<converter-id>countryConverter</converter-id>
+		<converter-class>chapter1.converter.CountryConverter</converter-class>
+	</converter>
+	<managed-bean>
+		<description>A simple backing bean example.</description>
+		<managed-bean-name>backingBean</managed-bean-name>
+		<managed-bean-class>chapter1.bean.BackingBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>This bean supports customer-related properties and events.</description>
+		<managed-bean-name>customerBean</managed-bean-name>
+		<managed-bean-class>chapter1.bean.CustomerBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<validator>
+		<description>This birthdate validator checks a date to make sure it is within the last 120 years.</description>
+		<display-name>Custom Date Validator</display-name>
+		<validator-id>customDateValidator</validator-id>
+		<validator-class>chapter1.validator.CustomDateValidator</validator-class>
+	</validator>
+
+</faces-config>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Seam conversation example</title>
+<a4j:loadStyle src="../css/style.css" />
+</head>
+<body>
+<h1>Step 2. Shipping Information</h1>
+<a4j:form id="shippingForm">		
+  <f:facet name="beforeInvalidField">
+    <h:graphicImage src="../images/error.gif" />
+  </f:facet>
+  <f:facet name="afterInvalidField">
+    <s:message errorClass="error" showSummary="#{true}" showDetail="#{false}" />
+  </f:facet>
+  <f:facet name="aroundInvalidField">
+    <s:span styleClass="invalid" />
+  </f:facet>
+  <s:validateAll>
+    <rich:panel>
+      <f:facet name="header">
+        <h:outputText value="Shipping Calculator" />
+      </f:facet>
+      <h:panelGrid columns="2">
+        <h:outputLabel value="Select Product: " for="product" />
+        <s:decorate id="productDecoration">
+          <h:selectOneMenu id="product" value="#{orderBean.lineItem.product}" required="#{true}">
+            <s:selectItems var="product" value="#{productBean.products}" label="#{product.name}" noSelectionLabel="Select" />
+            <s:convertEntity />
+            <a4j:support ajaxSingle="true" event="onchange" reRender="productDecoration" />
+          </h:selectOneMenu>
+        </s:decorate>
+        <h:outputLabel value="Select Shipping Destination: " for="country" />
+        <s:decorate id="countryDecoration">
+          <h:selectOneMenu id="country" value="#{orderBean.order.shippingDestination}" required="#{true}">
+            <s:selectItems var="country" value="#{customerBean.countries}" label="#{country.name}" noSelectionLabel="Select" />
+            <s:convertEntity />
+            <a4j:support ajaxSingle="true" event="onchange" reRender="countryDecoration" />
+          </h:selectOneMenu>				
+        </s:decorate>
+        <h:outputText value="" />
+        <a4j:commandButton value="Next Step" action="next" reRender="shippingForm" />
+      </h:panelGrid> 
+    </rich:panel>  
+  </s:validateAll>
+</a4j:form>
+</body>
+</html>

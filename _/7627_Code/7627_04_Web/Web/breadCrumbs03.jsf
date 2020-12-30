@@ -1,0 +1,20 @@
+<html xmlns:trh="http://myfaces.apache.org/trinidad/html" xmlns:tr="http://myfaces.apache.org/trinidad" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr:breadCrumbs example</title>
+<trh:styleSheet />
+</head>
+<body>
+<f:view>
+	<ui:composition>
+		<tr:form>
+			<tr:breadCrumbs inlineStyle="margin-top:10px; height:100px" orientation="horizontal" value="#{navigationMenuModel}" var="node">
+				<f:facet name="nodeStamp">
+					<tr:commandNavigationItem text="#{node.label}" destination="#{node.destination}" />
+				</f:facet>
+			</tr:breadCrumbs>
+		</tr:form>
+	</ui:composition>
+</f:view>
+</body>
+</html>

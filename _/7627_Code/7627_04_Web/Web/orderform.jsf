@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:tr="http://myfaces.apache.org/trinidad"
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<f:view>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>orderForm example</title>
+	<link rel="stylesheet" type="text/css" href="css/navigation.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<trh:styleSheet />
+	</head>
+	<body>
+	<h1>Product Order Form</h1>
+	<tr:form id="orderForm">
+		<tr:panelFormLayout>
+			<tr:inputText id="firstName" label="First Name"
+				value="#{productBean.order.customer.firstName}" required="#{true}" />
+			<tr:inputText id="lastName" label="Last Name"
+				value="#{productBean.order.customer.lastName}" required="#{true}" />
+			<tr:inputText id="phoneNumber" label="Phone Number "
+				value="#{productBean.order.customer.phoneNumber}">
+				<f:facet name="help">
+					<h:outputText value="XXX-XXX-XXXX" />
+				</f:facet>
+				<tr:validateRegExp pattern="\d{3}[\-\s]\d{3}[\-\s]\d{4}"
+					messageDetailNoMatch="The phone number must be 10 digits long (e.g. 123-555-1234)." />
+			</tr:inputText>
+			<tr:inputText id="emailAddress" label="Email Address "
+				value="#{productBean.order.customer.emailAddress}"
+				required="#{true}">
+				<t:validateEmail
+					message="The email address you have entered is not valid." />
+			</tr:inputText>
+			<tr:inputText id="emailAddressConfirm" label="Confirm Email "
+				required="#{true}">
+				<t:validateEqual for="emailAddress"
+					message="The email addresses you have entered do not match." />
+			</tr:inputText>
+			<tr:selectOneChoice label="Country" id="country"
+				value="#{productBean.order.customer.countryOfOrigin}"
+				required="#{true}">
+				<f:selectItem itemLabel="Select" itemValue="" />
+				<f:selectItems value="#{customerBean.countrySelectItems}" />
+				<f:converter converterId="countryConverter" />
+			</tr:selectOneChoice>
+			<tr:commandButton text="Submit Order"
+				action="#{productBean.submitOrder}" />
+		</tr:panelFormLayout>
+	</tr:form>
+	</body>
+</f:view>
+</html>

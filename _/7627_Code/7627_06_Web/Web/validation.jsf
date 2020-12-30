@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:s="http://jboss.com/products/seam/taglib" xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>s:decorate example</title>
+</head>
+<body>
+<ui:composition>
+	<div>
+  	<s:label styleClass="#{invalid ? 'error' : ''}">
+    	<ui:insert name="label" />
+      <s:span styleClass="required" rendered="#{required}">*</s:span>
+    </s:label>
+  	<span styleClass="#{invalid ? 'error' : ''}">
+    	<h:graphicImage value="/images/error.gif" rendered="#{invalid}" />
+      <s:validateAll>
+	    	<ui:insert />
+      </s:validateAll>
+    </span>
+    <s:message styleClass="error" />    
+  </div>	
+</ui:composition>
+</body>
+</html>

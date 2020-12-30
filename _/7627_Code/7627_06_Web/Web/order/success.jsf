@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Seam conversation example</title>
+<a4j:loadStyle src="../css/style.css" />
+</head>
+<body>
+<h1>Order Completed</h1>
+<rich:panel>
+<f:facet name="header">
+	<h:outputText value="Order Completed" />
+</f:facet>
+<h:messages />
+<s:link value="Place Another Order" view="/index.jsf" />
+</rich:panel>
+</body>
+</html>

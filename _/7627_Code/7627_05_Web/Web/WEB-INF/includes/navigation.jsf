@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<ui:composition>
+	<ui:include src="navigation01.jsf">
+  	<ui:param name="enabled" value="#{false}" />
+  </ui:include>
+	<ui:include src="navigation02.jsf">  
+    	<ui:param name="enabled" value="#{true}" />
+  </ui:include>
+	<ui:include src="navigation03.jsf">  
+    	<ui:param name="enabled" value="#{false}" />
+  </ui:include>  
+</ui:composition>
+</body>
+</html>

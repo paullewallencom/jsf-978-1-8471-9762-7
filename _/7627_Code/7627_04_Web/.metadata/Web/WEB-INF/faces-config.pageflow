@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12476002726030" configfile="/7627_04_Web/Web/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="products.jsf" x="338" y="1330" id="pf12482845306274" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf12486813924894" path="/products.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="orderform.jsf" x="554" y="1138" id="pf12486717575722" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" inlinks="pf12486717575711" path="/orderform.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="outofstock.jsf" x="554" y="1522" id="pf12486717575723" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf12486717575710" path="/outofstock.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2866" id="pf12486813924905" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf12486813924894 pf12488892960231 pf12488930167213 pf12488930167214 pf12488930167215 pf12488930167216 pf12490200453890 pf12492441482890 pf12492441482891 pf12492441482892 pf12492780170180 pf12492780170181 pf12492780170182 pf12492780170183 pf12492780170184 pf12486717575710 pf12486717575711 pf12493707504220 pf12493707504221" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="dialog02.jsf" x="338" y="178" id="pf12488892960232" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf12488892960231" path="/dialog02.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="about.jsf" x="338" y="562" id="pf12488930167227" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf12488930167213" path="/about.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.jsf" x="338" y="946" id="pf12488930167228" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf12488930167214" path="/index.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="services.jsf" x="338" y="1714" id="pf12488930167229" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf12488930167215" path="/services.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="contact.jsf" x="338" y="2098" id="pf124889301672210" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf12488930167216" path="/contact.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="inputListOfValues01_dialog.jsf" x="338" y="2482" id="pf12490200453891" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf12490200453890" path="/inputListOfValues01_dialog.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="processChoiceBar01_2.jsf" x="338" y="2866" id="pf12491523328852" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" inlinks="pf12492441482890" path="/processChoiceBar01_2.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="processChoiceBar01_3.jsf" x="338" y="3250" id="pf12492441482903" referenceLink="//@navigationRule.7/@navigationCase.2/@toViewId|" inlinks="pf12492441482891" path="/processChoiceBar01_3.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="processChoiceBar01_1.jsf" x="338" y="3634" id="pf12492441482904" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf12492441482892" path="/processChoiceBar01_1.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="train01_1.jsf" x="338" y="4018" id="pf12492780170215" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf12492780170180" path="/train01_1.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="train01_2.jsf" x="338" y="4402" id="pf12492780170216" referenceLink="//@navigationRule.8/@navigationCase.1/@toViewId|" inlinks="pf12492780170181" path="/train01_2.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="train01_3.jsf" x="338" y="4786" id="pf12492780170217" referenceLink="//@navigationRule.8/@navigationCase.2/@toViewId|" inlinks="pf12492780170182" path="/train01_3.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="train01_4.jsf" x="338" y="5170" id="pf12492780170218" referenceLink="//@navigationRule.8/@navigationCase.3/@toViewId|" inlinks="pf12492780170183" path="/train01_4.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="train01_5.jsf" x="338" y="5554" id="pf12492780170229" referenceLink="//@navigationRule.8/@navigationCase.4/@toViewId|" inlinks="pf12492780170184" path="/train01_5.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="processChoiceBar01_4.jsf" id="pf12493707504232" referenceLink="//@navigationRule.7/@navigationCase.3/@toViewId|" inlinks="pf12493707504220" path="/processChoiceBar01_4.jsf"/>
+  <nodes xsi:type="pageflow:PFPage" name="processChoiceBar01_5.jsf" id="pf12493707504243" referenceLink="//@navigationRule.7/@navigationCase.4/@toViewId|" inlinks="pf12493707504221" path="/processChoiceBar01_5.jsf"/>
+  <links id="pf12486717575710" target="pf12486717575723" source="pf12486813924905" outcome="outofstock" redirect="true"/>
+  <links id="pf12486717575711" target="pf12486717575722" source="pf12486813924905" outcome="order" redirect="true"/>
+  <links id="pf12486813924894" target="pf12482845306274" source="pf12486813924905" outcome="products" redirect="true"/>
+  <links id="pf12488892960231" target="pf12488892960232" source="pf12486813924905" outcome="dialog:showDialog"/>
+  <links id="pf12488930167213" target="pf12488930167227" source="pf12486813924905" outcome="about" redirect="true"/>
+  <links id="pf12488930167214" target="pf12488930167228" source="pf12486813924905" outcome="home" redirect="true"/>
+  <links id="pf12488930167215" target="pf12488930167229" source="pf12486813924905" outcome="services" redirect="true"/>
+  <links id="pf12488930167216" target="pf124889301672210" source="pf12486813924905" outcome="contact" redirect="true"/>
+  <links id="pf12490200453890" target="pf12490200453891" source="pf12486813924905" outcome="dialog:showProductSelectionDialog"/>
+  <links id="pf12492441482890" target="pf12491523328852" source="pf12486813924905" outcome="processChoiceBar02" redirect="true"/>
+  <links id="pf12492441482891" target="pf12492441482903" source="pf12486813924905" outcome="processChoiceBar03" redirect="true"/>
+  <links id="pf12492441482892" target="pf12492441482904" source="pf12486813924905" outcome="processChoiceBar01" redirect="true"/>
+  <links id="pf12492780170180" target="pf12492780170215" source="pf12486813924905" outcome="train_1" redirect="true"/>
+  <links id="pf12492780170181" target="pf12492780170216" source="pf12486813924905" outcome="train_2" redirect="true"/>
+  <links id="pf12492780170182" target="pf12492780170217" source="pf12486813924905" outcome="train_3" redirect="true"/>
+  <links id="pf12492780170183" target="pf12492780170218" source="pf12486813924905" outcome="train_4" redirect="true"/>
+  <links id="pf12492780170184" target="pf12492780170229" source="pf12486813924905" outcome="train_5" redirect="true"/>
+  <links id="pf12493707504220" target="pf12493707504232" source="pf12486813924905" outcome="processChoiceBar04" redirect="true"/>
+  <links id="pf12493707504221" target="pf12493707504243" source="pf12486813924905" outcome="processChoiceBar05" redirect="true"/>
+</pageflow:Pageflow>

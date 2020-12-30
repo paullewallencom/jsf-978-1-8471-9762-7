@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>panelPositioned example</title>
+<ice:outputStyle href="/xmlhttp/css/rime/rime.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<f:view>
+	<ice:form>
+		<ice:panelGrid columns="2" cellpadding="10">
+    	<ice:panelGroup>
+        <ice:outputText value="Modifiable Product List" style="font-weight:bold; padding:5px" />
+        <ice:panelPositioned id="products" var="product" value="#{productBean.rankedProducts}" styleClass="positionPanelContainer" listener="#{productBean.rankChanged}" constraint="vertical">
+          <ice:panelGroup style="cursor:move;" styleClass="container">
+            <ice:panelGroup styleClass="moveLabel" style="border: 4px red">
+            	<ice:graphicImage url="/images/#{product.icon}" width="16px" style="vertical-align:middle; padding-right:5px" />
+              <ice:outputText id="name" value="#{product.name}" />
+            </ice:panelGroup>
+          </ice:panelGroup>
+        </ice:panelPositioned>
+      </ice:panelGroup>
+      <ice:panelGroup>
+        <ice:outputText value="Ranked Products"  style="font-weight:bold; padding:5px" />
+        <ice:panelSeries id="rankedProducts" var="product" styleClass="rankPanelContainer" value="#{productBean.rankedProducts}">
+          <ice:panelGroup effect="#{product.effect}" styleClass="container">
+            <ice:outputText id="nameWithRank" value="#{product.nameWithRank}" />
+          </ice:panelGroup>
+        </ice:panelSeries>
+      </ice:panelGroup>
+		</ice:panelGrid>
+	</ice:form>
+</f:view>
+</body>
+</html>

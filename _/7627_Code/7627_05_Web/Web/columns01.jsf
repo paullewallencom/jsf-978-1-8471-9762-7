@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ice:columns example</title>
+<ice:outputStyle href="./xmlhttp/css/xp/xp.css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+<body>
+<f:view>
+	<h:form>
+		<ice:dataTable var="customer" value="#{customerBean.rowDataModel}" rows="5" columnClasses="column-odd,column-even">		     	
+      <ice:columns value="#{customerBean.columnDataModel}" var="column">
+				<f:facet name="header">
+        	<ice:panelGroup>
+						<ice:outputText value="#{column}" />
+          </ice:panelGroup>
+				</f:facet>
+				<ice:outputText value="#{customerBean.cellValue}" />
+			</ice:columns>
+		</ice:dataTable>
+	</h:form>
+</f:view>
+</body>
+</html>

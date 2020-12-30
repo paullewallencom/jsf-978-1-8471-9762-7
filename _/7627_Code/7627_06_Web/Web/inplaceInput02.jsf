@@ -1,0 +1,40 @@
+<html xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:inplaceInput example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<h:form>
+	<rich:dataTable value="#{productBean.products}" var="product" rows="5" columnClasses="left-aligned,left-aligned,right-aligned,centered">
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Product Name" />
+			</f:facet>
+			<rich:inplaceInput value="#{product.name}" />
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Category" />
+			</f:facet>
+      <rich:inplaceSelect value="#{product.category}">
+				<s:selectItems value="#{productBean.productCategories}" var="category" label="#{category.name}" />
+      </rich:inplaceSelect>		
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Price" />
+			</f:facet>
+			<rich:inplaceInput value="#{product.price}">
+				<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="0" />
+			</rich:inplaceInput>
+		</rich:column>
+		<rich:column>
+			<f:facet name="header">
+				<h:outputText value="Quantity in Stock" />
+			</f:facet>
+			<rich:inplaceInput value="#{product.quantityInStock}" />
+		</rich:column>
+	</rich:dataTable>
+</h:form>
+</body>
+</html>

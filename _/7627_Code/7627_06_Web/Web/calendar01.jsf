@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:calendar example</title>
+<a4j:loadStyle src="./css/style.css" />
+</head>
+<body>
+<rich:panel style="width:320px;">
+	<f:facet name="header">
+		<h:outputText value="Calendar" />
+	</f:facet>
+	<h:panelGrid columns="2">
+		<h:outputText value="Select Date: " />
+		<rich:calendar popup="#{true}" />
+	</h:panelGrid>
+</rich:panel>
+<rich:spacer width="100%" height="20px" />
+</body>
+</html>

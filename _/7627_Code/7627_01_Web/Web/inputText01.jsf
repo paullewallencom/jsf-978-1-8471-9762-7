@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>h:inputText string binding example</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<f:view>
+	<h:form>
+		<div>
+			<h:outputLabel for="name" value="Enter your name: " />
+			<h:inputText id="name" value="#{backingBean.name}" />
+			<h:commandButton value="Submit" />
+		</div>
+		<div>
+			<h:outputText value="Hello, #{backingBean.name}" rendered="#{backingBean.name ne null and backingBean.name ne ''}" />
+		</div>
+	</h:form>
+</f:view>
+</body>
+</html>

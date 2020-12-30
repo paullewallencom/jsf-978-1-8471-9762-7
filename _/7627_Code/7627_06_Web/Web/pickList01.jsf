@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j" xmlns:s="http://jboss.com/products/seam/taglib">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>rich:pickList example</title>
+<a4j:loadStyle src="./css/style.css" /></head>
+<body>
+<rich:panel style="width:450px;">
+	<f:facet name="header">
+		<h:outputText value="Select Countries " />
+	</f:facet>
+	<h:panelGrid columns="2">
+		<rich:pickList copyAllControlLabel="copy all label" copyControlLabel="copy label" removeAllControlLabel="remove all label" removeControlLabel="remove label">
+			<s:selectItems value="#{customerBean.countries}" var="country" label="#{country.name}" />
+      <s:convertEntity />
+		</rich:pickList>
+	</h:panelGrid>
+</rich:panel>
+</body>
+</html>
